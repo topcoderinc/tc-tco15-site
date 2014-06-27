@@ -1,0 +1,210 @@
+/* media quries */
+@media (min-width: 992px){
+
+.site-footer .poweredBy {
+	margin: 30px 0;
+}
+
+/* .pTitleBar */
+.pTitleBar{
+	background: #e9f6fc 100% 100% no-repeat;
+	left: 0;
+	top: 113px;
+	width: 100%;
+	z-index: 100;
+}
+	.pTitleBar h1{
+		font-family: Arial, Helvetica, Tahoma, sans-serif;
+		font-size:36px;
+		font-weight:normal;    
+		margin: 0;
+	}
+	.pTitleBar dl{
+		font-family: Arial, Helvetica, Tahoma, sans-serif;
+		background: url(../i/tco14-logo-s.png) no-repeat 0 22px;
+		font-size:36px;
+		font-weight:normal;		
+		min-height: 89px;
+		margin: 0 0 0 20px;
+	}
+		.pTitleBar dt{ 
+			line-height:40px;
+			padding-top:10px;        
+			margin-left: 138px;
+			font-size: 36px;
+			color: #E77152;
+		}
+		.pTitleBar dt em{
+			font-style: normal;
+			color: #1b9f9f;
+		}
+		.pTitleBar dd{
+			overflow:hidden;
+			font-size: 14px;
+			line-height:20px;        
+			margin-left: 138px;
+			margin-top: 7px;
+		}
+		.pTitleBar.alt dd{
+			margin-top: -6px;
+		}
+			.pTitleBar dd a{
+				float:left;			
+				color: #333;
+				text-transform: uppercase;
+				display: inline-block;
+				height: 27px;
+				border: 4px solid transparent;
+				margin: 8px 0 0 0;
+			}
+			.pTitleBar.alt dd a{
+				height: 18px;			
+				margin: 4px 0 0;
+			}
+			.pTitleBar dd a.current, .pTitleBar dd a:hover{
+				border-right: 0;
+				border: 4px solid transparent;
+				border-bottom: 4px solid #1B9F9F;
+				text-decoration: none;			
+				-webkit-border-image: url("../i/bdr.png") 5 7 stretch;
+				-moz-border-image: url("../i/bdr.png") 5 7 stretch;
+				-ms-border-image: url("../i/bdr.png") 5 7 stretch;
+				border-image: url("../i/bdr.png") 5 7 stretch;
+			}
+			.pTitleBar dd a.current{
+				cursor:default;
+			}
+			.pTitleBar dd a.current:hover{
+				text-decoration:none;
+			}
+			.pTitleBar dd span{
+				float:left;
+				margin: 14px 8px 10px;
+				height: 16px;			
+				background: #999;
+				width: 1px;
+			}
+			.pTitleBar.alt dd span{
+				margin: 6px 8px 4px;
+			}
+
+.single .pTitleBar {
+	height: 50px;	
+}
+	.single .pTitleBar h1 {
+		line-height: 80px;
+	}	
+
+	/* sideRail layout */
+.sideRail{
+	position: relative;
+}
+	.sideRail .Sponsor_Widget{		
+		width: 100%;
+		float: none;
+	}
+	.sideRail .Twitter_widget{
+		float: none;
+		width: 100%;
+		padding-right: 0;
+	}
+	.sideRail .forum_widget{
+		float: none;		
+		width: 100%;
+		padding-left: 0;
+		position: relative;
+		top: auto;
+		right: auto;
+		background: #fffffe;
+}
+
+	/* sideRail layout */
+.sideRail{
+	position: relative;
+}
+	.sideRail .Sponsor_Widget{		
+		width: 100%;
+		float: none;
+	}
+	.sideRail .Twitter_widget{
+		float: none;
+		width: 100%;
+		padding-right: 0;
+	}
+	.sideRail .forum_widget{
+		float: none;		
+		width: 100%;
+		padding-left: 0;
+		position: relative;
+		top: auto;
+		right: auto;
+		background: #fffffe;
+	}
+	
+	#topRightSocialMedia > span {
+		margin: 0;
+		width: 40px;
+	}
+	.col-md-3 #topRightSocialMedia > span {
+		width: 32px;;
+	}
+}
+
+@media (min-width: 1200px){
+.news-carousel {
+	position: relative;
+	margin: 0 auto;
+	height: 300px;
+}
+	.news-carousel .item {
+		height: 297px;	
+		padding-top: 0;
+	}	
+		.news-carousel .item iframe {
+			max-height: 100%;		
+			max-width: 100%;
+			height: 300px;
+			width: 500px;
+		}
+		.news-carousel .item h3 {
+			margin: 30px 0 20px;
+		}
+		
+	.news-carousel p {
+		text-align: left;
+		font-size: 15px;
+		line-height: 21px;
+	}
+	.news-carousel .btns {
+		text-align: left;  margin-left: -8px;		
+	}
+	.carousel .carousel-inner .item {
+		text-align: left;
+	}
+	
+	
+	/* New Home */
+	.top-cover-photo {
+		height: 502px;		
+	}
+		.top-cover-photo h1 {
+			font-size: 41px;
+		}
+		.top-cover-photo h2 {
+			font-size: 60px;
+		}
+			.top-cover-photo .cta a {
+				font-size: 24px;
+			}
+				.top-cover-photo .cta a strong {
+					font-size: 60px;			
+				}
+				
+	.sponsorsCentered .sponsors > li {
+		width: 25%;
+	}
+	.cta-bottom a {
+		font-size: 48px;
+	}
+				
+}
