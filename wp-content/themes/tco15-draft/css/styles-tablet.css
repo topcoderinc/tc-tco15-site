@@ -12,7 +12,7 @@
 	.news-carousel {
 		position: relative;
 		margin: 0 auto;
-		min-height: 510px;	
+		min-height: 350px;	
 		background-size: 100% auto;
 	}
 		.news-carousel h3 {
@@ -23,7 +23,7 @@
 			line-height: 20px;
 		}
 		.news-carousel .item {
-			min-height: 507px;	
+			min-height: 350px;	
 			padding-top: 0;
 			text-align: left;
 		}
@@ -128,8 +128,7 @@
 			margin-top: -6px;
 		}
             .pTitleBar dd a{
-                float:left;
-            
+                float:left;            
                 color: #333;
                 text-transform: uppercase;
                 display: inline-block;
@@ -138,8 +137,7 @@
                 margin: 8px 0 0 0;
 			}
 			.pTitleBar.alt dd a{
-				height: 18px;
-			
+				height: 18px;			
 				margin: 4px 0 0 0;
 			}
             .pTitleBar dd a.current, .pTitleBar dd a:hover{
@@ -208,7 +206,7 @@
 		}
 		
 	
-	/* New Home */
+	/* New Home -------------------------------------------------------------------------------------*/
 	.top-cover-photo {
 		height: 440px;		
 	}
@@ -222,7 +220,7 @@
 			font-size: 17px;	
 		}
 		.top-cover-photo p.location {
-			font-size: 29px;
+			font-size: 24px;
 			margin-top: 10px;
 		}
 		

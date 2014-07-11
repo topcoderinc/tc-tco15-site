@@ -2,7 +2,7 @@
 @media (min-width: 1024px){    
 	/* New Home */
 	.top-cover-photo {
-		height: 460px;		
+		height: 540px;		
 	}
 		.top-cover-photo h1 {
 			font-size: 34px;
@@ -30,7 +30,7 @@
 		width: 33%;			
 	}
 	.cta-bottom a {
-		font-size: 36px;	
+		font-size: 30px;	
 	}
 	
 

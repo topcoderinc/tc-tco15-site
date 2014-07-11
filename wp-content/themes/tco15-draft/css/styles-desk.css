@@ -183,28 +183,28 @@
 	}
 	
 	
-	/* New Home */
+	/* New Home ---------------------------------------------------------------------------------------------*/
 	.top-cover-photo {
-		height: 502px;		
+		height: 550px;		
 	}
 		.top-cover-photo h1 {
 			font-size: 41px;
 		}
 		.top-cover-photo h2 {
-			font-size: 60px;
+			font-size: 45px;
 		}
 			.top-cover-photo .cta a {
-				font-size: 24px;
+				font-size: 21px;
 			}
 				.top-cover-photo .cta a strong {
-					font-size: 60px;			
+					font-size: 45px;			
 				}
 				
 	.sponsorsCentered .sponsors > li {
 		width: 25%;
 	}
 	.cta-bottom a {
-		font-size: 48px;
+		font-size: 33px;
 	}
 				
 }
