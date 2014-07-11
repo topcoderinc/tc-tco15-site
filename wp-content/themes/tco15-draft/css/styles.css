@@ -1117,8 +1117,7 @@ header.with-tertiary-nav {
 /* sidebar */
 .sideRail{
     padding-left:1px;
-    margin-bottom: 1px;
-	
+    margin-bottom: 1px;	
     overflow: hidden;
 }
     .sideRail h2{
@@ -1176,8 +1175,7 @@ header.with-tertiary-nav {
     }
     .sideRail .tweets .carousel .bx-wrapper{
         margin: 12px auto 0;
-		position: relative;		
-    
+		position: relative;		    
         color: #999;
 }
     .sideRail .tweets .carousel .bx-prev{
@@ -2816,7 +2814,23 @@ hr { margin: 10px 0 !important; }
 .hasCoverPhoto {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
+	.hasCoverPhoto h3 {
+		color: #29abe2 !important;
+		font-size: 21px !important;
+	}
+	.hasCoverPhoto .sideRail h3 {
+		color: #f7931e !important;
+		font-size: 18px !important;
+		font-weight: bold;
+	}
+	
 	.hasCoverPhoto p {
 		font-size: 16px;
 		margin-bottom: 20px;
 	}
+	.hasCoverPhoto .easy-table {
+		font-size: 16px;
+	}
+		.hasCoverPhoto .easy-table strong {
+			color: #333;
+		}
