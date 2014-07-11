@@ -1070,7 +1070,8 @@ header.with-tertiary-nav {
 			border-bottom: 1px solid #d8d8d8;
 		}
 			.posts .post-content .more,
-			.blogs .section .more{
+			.blogs .section .more, 
+			.hasCoverPhoto .more {
 				text-transform: uppercase;
 				color: #fff;			
 				background: #29abe2;  
@@ -1091,7 +1092,8 @@ header.with-tertiary-nav {
 				bottom: 18px;
 			}
 			.posts .post-content .more:hover,
-			.blogs .section .more:hover{
+			.blogs .section .more:hover, 
+			.hasCoverPhoto .more:hover {
 				background: #0071bc;
 				text-decoration: none;
 			}
