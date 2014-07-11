@@ -59,6 +59,12 @@ function additional_page_attr_metaboxes($meta_boxes) {
 							'id' => $prefix . 'right_sb_select',
 							'type' => 'select',
 							'options' => get_sidebar_list()
+					),
+					array (
+							'name' => 'Lead Text',
+							'desc' => '',
+							'id' => $prefix . 'lead_text',
+							'type' => 'wysiwyg'
 					)
 			) 
 	);

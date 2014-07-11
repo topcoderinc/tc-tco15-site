@@ -12,14 +12,27 @@
 $title_lower = get_the_title ();
 $title_lower = str_replace ( ' ', '-', $title_lower );
 $title_lower = str_replace ( '.', '-', $title_lower );
-
-
 $pid = $post->ID;
+$image 	= wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
+$lead_text = get_post_meta ( $post->ID, '_cmb_lead_text', true );	
+
 ?>
 </head>
 <body id="<?php echo 'p'.$title_lower ?>">
+	
 	<?php get_template_part ( 'navigation' ); ?>
-	<div class="main-content">	
+
+	<?php if ( $image ) : ?>
+	<div class="coverPhoto" style="background: url(<?php echo $image[0]; ?>) 50% 0 no-repeat;">
+		<div class="container">
+			<?php echo apply_filters('the_content', $lead_text); ?>
+		</div>
+	</div>
+	<?php endif; ?>
+		
+	<div class="main-content<?php echo $image ? ' hasCoverPhoto' : ''; ?>">	
+		
+		<?php if ( !$image ) : ?>
 		<div class="pTitleBar">
 			<div class="container">				
 				
@@ -29,6 +42,7 @@ $pid = $post->ID;
 							
 			</div>
 		</div>
+		<?php endif; ?>
 				
 		<?php get_template_part ( 'breadcrumbs' ); ?>
 		
