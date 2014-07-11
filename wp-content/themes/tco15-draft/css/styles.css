@@ -2834,3 +2834,32 @@ hr { margin: 10px 0 !important; }
 		.hasCoverPhoto .easy-table strong {
 			color: #333;
 		}
+		
+	.hasCoverPhoto .cta {
+		margin: 20px auto;
+		padding: 20px 0;
+		text-align: center;
+	}
+		.hasCoverPhoto .cta a {
+			background: url(../i/cta-left-bracket.png) no-repeat;
+			background-size: contain;	
+			color: #0071bc;
+			display: inline-block;
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 1.2;
+		}
+			.hasCoverPhoto .cta span {
+				background: url(../i/cta-right-bracket.png) 100% 0 no-repeat;
+				background-size: contain;
+				display: block;
+				padding: 6px 15px 6px 12px;
+			}
+				.hasCoverPhoto .cta a strong {
+					font-size: 41px;
+					font-weight: 800;
+				}
+					.hasCoverPhoto .cta a:hover {
+						color: #29abe2;
+						text-decoration: none;
+					}		
