@@ -2634,24 +2634,6 @@ hr { margin: 10px 0 !important; }
 }
 
 /* Dev Con and Celebrity Match */
-#pDeveloper-Conference header {
-	height: 152px;
-}
-	#pDeveloper-Conference .navbar-nav li.active .dropdown-wrap li.active .dropdown-wrap  {
-		display: none;
-	}
-
-.green-box {
-	background: #8cc63f;
-	color: #fff;
-	font-size: 16px;
-	margin-bottom: 20px;
-	padding-top: 20px;
-}
-	.green-box h1 {
-		margin-bottom: 10px;
-	}
-	
 .btn-box {
 	background: #20aae1;
 	border-bottom: 3px solid #1b91bf;
