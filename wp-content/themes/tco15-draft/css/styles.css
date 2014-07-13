@@ -356,13 +356,16 @@ header.with-tertiary-nav {
 							background-image: url(../i/nav-agenda-white.png);							
 						}
 
-						.navbar-nav li.active .dropdown-wrap li a.registration i {
+						.navbar-nav li.active .dropdown-wrap li a.registration i, 
+						.navbar-nav li.active .dropdown-wrap li a.register i {
 							background-image: url(../i/nav-registration-blue.png);
 							background-size: contain;
 							width: 29px;							
 						}						
 						.navbar-nav li.active .dropdown-wrap li a.registration:hover i, 
-						.navbar-nav li.active .dropdown-wrap li.active a.registration i {
+						.navbar-nav li.active .dropdown-wrap li.active a.registration i, 
+						.navbar-nav li.active .dropdown-wrap li a.register:hover i, 
+						.navbar-nav li.active .dropdown-wrap li.active a.register i {
 							background-image: url(../i/nav-registration-white.png);							
 						}
 
