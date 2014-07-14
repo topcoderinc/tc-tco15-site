@@ -2854,3 +2854,10 @@ hr { margin: 10px 0 !important; }
 		font-size: 16px;
 		line-height: 30px;		
 	}
+	
+	.hasCoverPhoto .btnlg {
+		font-size: 21px;
+		height: auto;
+		padding: 10px 20px;
+		width: auto;
+	}
