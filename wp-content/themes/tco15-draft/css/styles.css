@@ -2847,4 +2847,10 @@ hr { margin: 10px 0 !important; }
 					.hasCoverPhoto .cta a:hover {
 						color: #29abe2;
 						text-decoration: none;
-					}		
+					}	
+					
+	.hasCoverPhoto article.posts ul li {
+		background-position: 0 7px !important;
+		font-size: 16px;
+		line-height: 30px;		
+	}
