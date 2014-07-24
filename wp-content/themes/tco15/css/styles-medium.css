@@ -1,0 +1,37 @@
+/* media quries -------------------*/
+@media (min-width: 992px){    
+	/* New Home */
+	.top-cover-photo {
+		height: 540px;		
+	}
+		.top-cover-photo h1 {
+			font-size: 34px;
+		}
+		.top-cover-photo p {
+			font-size: 21px;
+		}
+
+	.lp {
+		font-size: 18px;
+	}
+		.lp h2 {
+			font-size: 48px;
+		}
+
+	.news-carousel {
+		min-height: 350px;	
+	}
+		.news-carousel .item {
+			margin-bottom: 0;
+			min-height: 347px;
+		}
+
+	.sponsorsCentered .sponsors > li {
+		width: 33%;			
+	}
+	.cta-bottom a {
+		font-size: 30px;	
+	}
+	
+
+}
