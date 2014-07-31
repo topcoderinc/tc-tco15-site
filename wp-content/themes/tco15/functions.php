@@ -23,6 +23,7 @@ include_once 'shortcodes/tco_user_details.php';
 include_once 'shortcodes/tco_period_leaders.php';
 include_once 'shortcodes/tco_forum_posts.php';
 include_once 'shortcodes/tco_event_list.php';
+include_once 'shortcodes/tco_youtube.php';
 
 
 /* logo */
