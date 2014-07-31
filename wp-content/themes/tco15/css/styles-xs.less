@@ -21,25 +21,46 @@ a {
 		color: #0071bc;
 	} 
 }
-hr { margin: 10px 0 !important; }
+
+/* common styles */
+.img-responsive {
+	margin: auto;
+}
 button{
     outline: none;
 }
-
-
-input.isBlured,
-::-webkit-input-placeholder,
-::-moz-input-placeholder, 
-::-ms-input-placeholder, 
-::input-placeholder {
-	color: #ccc;
-    font-style: italic;
+input.isBlured {
+    font-style: italic;	
+    color: #CCC !important;
 	font-weight: normal;
 }
-
+::-webkit-input-placeholder{
+    font-style: italic;
+	color: #ccc;
+	font-weight: normal;
+}
+::-moz-input-placeholder{
+    font-style: italic;
+	color: #ccc;
+	font-weight: normal;
+}
+::-ms-input-placeholder{
+    font-style: italic;
+	color: #ccc;
+	font-weight: normal;
+}
+::input-placeholder{
+    font-style: italic;
+	color: #ccc;
+	font-weight: normal;
+}
 .xs-hide{
 	display: none;
 }
+.message {
+	color: green;
+}
+
 h1, .h1, h2, .h2, h3, .h3{
 	margin: 0;
 }
@@ -47,19 +68,19 @@ h3{
 	font-size: 36px;
 	line-height: 38px;
 	font-weight: normal;
-	color: #8cc63f;
-	small{
+	color: #8cc63f;	
+	small {
 		color: #333;		
 	}
-	em{
+	em {
 		font-style: normal;
-		font-weight: bold;
-		b {
+		font-weight: bold;	
+	 	b {
 			font-weight: normal;
 			color: #f7931e;
 		}
 	}
-}	
+}
 .sideRail h3 {
 	font-size: 20px;
 	color: #f7931e;
@@ -70,7 +91,7 @@ h2, h4 {
 	color: #f7931e;
 }
 
-/* Button style */ 
+/*----------------------------------- Button style -----------------------------*/ 
 .slide .btn,.modalBox .btn {
     background: #f7931e;
     border: none;
@@ -85,19 +106,19 @@ h2, h4 {
     display: inline-block;
     font-weight: normal;
     padding: 0;
-	&:hover {
-		background: #8cc63f;
-		color: #fff;
-		text-decoration: none;
-	}
 }
-.btnSecondary, .modalBox .btnSecondary, .slide .btnSecondary {
+.slide .btn:hover,.modalBox .btn:hover {
+    background: #8cc63f;
+    color: #fff;
+    text-decoration: none;
+}
+.btnSecondary,.modalBox .btnSecondary,.slide .btnSecondary {
     background: #1b9f9f;
     border-bottom: 3px solid #178787;
-	&:hover {
-		text-decoration: none;
-		background: #178787;
-	}
+}
+.btnSecondary:hover,.modalBox .btnSecondary:hover,.slide .btnSecondary:hover {
+    text-decoration: none;
+    background: #178787;
 }
 a.grayBtn {
     background: url( ../i/buttons.png) no-repeat left -72px;
@@ -166,51 +187,50 @@ header {
         color: #29abe2;
     }
 }
+
 		
 	
 	/* 1st Level */
 	.navbar-nav {
-		margin: 9px 0 0 43px;
+		margin: 0 0 0 43px;
 		li {
 			position: static;
 		}
 		& > li {
 			& > a {
-				color: #666;
+				background: transparent url(../i/nav-primary.png) no-repeat;
+				color: @blue;
 				font-size: 14px;
-				line-height: 45px;
-				padding: 0 34px 0 17px;
+				line-height: 60px;
+				padding: 0 45px;
 				text-transform: uppercase;
-			}
-			& > a.home {
-				background: url(../i/nav-1st-home.png) 0 11px no-repeat;
-				padding-left: 33px;
-			}
-			& > a.tournament {
-				background: url(../i/nav-1st-tournament.png) 0 11px no-repeat;
-				padding-left: 33px;
-			}
-			& > a.developer-events {
-				background: url(../i/nav-1st-onsite-events.png) 0 11px no-repeat;
-				padding-left: 33px;
-			}
-			& > a:hover {
-				color: #fff;
-				background-position: 0 -29px;
-			}
-			& > a.developer-events:hover {
-				background-position: 0 -28px;
-			}
-			& > a.active {
-				color: #fff;
-				background-position: 0 -29px;
-				font-weight: bold;
-			}
-			& > a.developer-events.active {
-				background-position: 0 -28px;
+				&:hover {
+					background-color: transparent;
+					color: @green;
+				}
+				&.active {
+					font-weight: bold;
+					color: @orange;
+				}
+				&.home {
+					background-position: 0 0;
+					&:hover { background-position: 0 -60px; }
+					&.active { background-position: 0 -120px; }
+				}
+				&.tournament {
+					background-position: 0 -180px;
+					&:hover { background-position: 0 -240px; }
+					&.active { background-position: 0 -300px; }
+				}
+				&.developer-events {
+					background-position: 0 -360px;
+					&:hover { background-position: 0 -420px; }
+					&.active { background-position: 0 -480px; }
+				}
 			}
 		}
 	}
+
 	
 	/* 2nd Level */
 	.dropdown-wrap {
@@ -234,158 +254,73 @@ header {
 					float: left;
 					width: auto;
 					a {
+						color: @blue;
 						display: block;
 						height: 88px;
-						min-width: 88px;
+						min-width: 100px;
 						overflow: hidden;
 						padding: 0 5px;
 						position: relative;
 						text-align: center;
 						text-transform: uppercase;
 						i {
-							background: url(../i/main-menu.png) 0 0 no-repeat;
+							background: url(../i/nav-secondary.png) 0 0 no-repeat;
 							display: block;
-							height: 36px;
-							margin: 18px auto 10px;
-							width: 36px;
+							height: 50px;
+							margin: 8px auto 10px;
+							width: 50px;
+						}
+						&:hover {
+							color: @green;
+							text-decoration: none;
+						}
+						&.overview i {
+							background-position: @nav-sec-overview @nav-sec-normal;
+							&:hover { background-position: @nav-sec-overview @nav-sec-hover; }							
+						}
+						&.algorithm i {
+							background-position: @nav-sec-algorithm @nav-sec-normal;
+							&:hover { background-position: @nav-sec-algorithm @nav-sec-hover; }							
+						}
+						&.development i {
+							background-position: @nav-sec-development @nav-sec-normal;
+							&:hover { background-position: @nav-sec-development @nav-sec-hover; }							
+						}
+						&.information-architecture i, 
+						&.ia i {
+							background-position: @nav-sec-information-architecture @nav-sec-normal;
+							&:hover { background-position: @nav-sec-information-architecture @nav-sec-hover; }							
+						}
+						&.marathon i {
+							background-position: @nav-sec-marathon @nav-sec-normal;
+							&:hover { background-position: @nav-sec-marathon @nav-sec-hover; }							
+						}
+						&.ui-design i {
+							background-position: @nav-sec-ui-design @nav-sec-normal;
+							&:hover { background-position: @nav-sec-ui-design @nav-sec-hover; }					
+						}
+						&.prototype i {
+							background-position: @nav-sec-prototype @nav-sec-normal;
+							&:hover { background-position: @nav-sec-prototype @nav-sec-hover; }					
 						}
 					}
-					a:hover {
-						background-color: #0071bc;
-						color: #fff;
-						text-decoration: none;
-					}
-					a.overview {
-						i {
-							background-position: 0 -200px;
+									
+					&.active {
+						a {							
+							color: @orange;
+							font-weight: bold;
+							&.overview i { background-position: @nav-sec-overview @nav-sec-active; }
+							&.algorithm i { background-position: @nav-sec-algorithm @nav-sec-active; }
+							&.development i { background-position: @nav-sec-development @nav-sec-active; }
+							&.information-architecture i, &.ia i { background-position: @nav-sec-information-architecture @nav-sec-active; }
+							&.marathon i { background-position: @nav-sec-marathon @nav-sec-active; }
+							&.ui-design i { background-position: @nav-sec-ui-design @nav-sec-active; }
+							&.prototype i { background-position: @nav-sec-prototype @nav-sec-active; }							
 						}
-					}
-					a.algorithm {
-						i {
-							background-position: 0 -400px;
-						}
-					}
-					a.design {
-						i {
-							background-position: 0 -600px;
-						}
-					}
-					a.development {
-						i {
-							background-position: 0 -800px;
-						}
-					}
-					a.marathon {
-						i {
-							background-position: 0 -1000px;
-						}
-					}
-					a.first2finish {
-						i {
-							background-position: 0 -1200px;
-						}
-					}
-					a.studio {
-						i {
-							background-position: 0 -1400px;
-						}
-					}
-					a.arena {
-						i {
-							background-position: 0 -1600px;
-							width: 25px;
-						}
-					}
-					a.developer-conference {
-						i {
-							background-image: url(../i/nav-dev-con-blue-alt.png);
-							background-size: contain;
-							width: 36px;
-						}
-					}
-					a.celebrity-match {
-						i {
-							background-image: url(../i/nav-celeb-match-blue.png);
-							background-size: contain;
-							width: 37px;
-						}
-					}
-					a.agenda {
-						i {
-							background-image: url(../i/nav-agenda-blue.png);
-							background-size: contain;
-							width: 36px;
-						}
-					}
-					a.win {
-						i {
-							background-image: url(../i/nav-win-blue.png);
-							background-size: contain;
-							width: 21px;
-						}
-					}
-				}
-				li.active {
-					a {
-						background-color: #2aaee2;
-						color: #fff;
-						font-weight: bold;
 					}
 				}
 			}
 		}
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.overview i,.navbar-nav li.active .dropdown-wrap li a.overview:hover i {
-		background-position: 0 -300px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.algorithm i,.navbar-nav li.active .dropdown-wrap li a.algorithm:hover i {
-		background-position: 0 -500px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.design i,.navbar-nav li.active .dropdown-wrap li a.design:hover i {
-		background-position: 0 -700px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.development i,.navbar-nav li.active .dropdown-wrap li a.development:hover i {
-		background-position: 0 -900px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.marathon i,.navbar-nav li.active .dropdown-wrap li a.marathon:hover i {
-		background-position: 0 -1100px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.first2finish i,.navbar-nav li.active .dropdown-wrap li a.first2finish:hover i {
-		background-position: 0 -1300px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.studio i,.navbar-nav li.active .dropdown-wrap li a.studio:hover i {
-		background-position: 0 -1500px;
-	}
-	.navbar-nav li.active .dropdown-wrap li.active a.arena i,.navbar-nav li.active .dropdown-wrap li a.arena:hover i {
-		background-position: 0 -1700px;
-	}
-	.navbar-nav li.active .dropdown-wrap li a.developer-conference:hover i,.navbar-nav li.active .dropdown-wrap li.active a.developer-conference i {
-		background-image: url(../i/nav-dev-con-white-alt.png);
-	}
-	.navbar-nav li.active .dropdown-wrap li a.celebrity-match:hover i,.navbar-nav li.active .dropdown-wrap li.active a.celebrity-match i {
-		background-image: url(../i/nav-celeb-match-white.png);
-	}
-	.navbar-nav li.active .dropdown-wrap li a.agenda:hover i,.navbar-nav li.active .dropdown-wrap li.active a.agenda i {
-		background-image: url(../i/nav-agenda-white.png);
-	}
-	.navbar-nav li.active .dropdown-wrap li a.registration i,.navbar-nav li.active .dropdown-wrap li a.register i {
-		background-image: url(../i/nav-registration-blue.png);
-		background-size: contain;
-		width: 29px;
-	}
-	.navbar-nav li.active .dropdown-wrap li a.registration:hover i,.navbar-nav li.active .dropdown-wrap li.active a.registration i,.navbar-nav li.active .dropdown-wrap li a.register:hover i,.navbar-nav li.active .dropdown-wrap li.active a.register i {
-		background-image: url(../i/nav-registration-white.png);
-	}
-	.navbar-nav li.active .dropdown-wrap li a.win:hover i,.navbar-nav li.active .dropdown-wrap li.active a.win i {
-		background-image: url(../i/nav-win-white.png);
-	}
-	.navbar-nav li.active .dropdown-wrap li a.events-faqs i,.navbar-nav li.active .dropdown-wrap li a.event-faqs i {
-		background-image: url(../i/nav-events-faqs-blue.png);
-		background-size: contain;
-		width: 36px;
-	}
-	.navbar-nav li.active .dropdown-wrap li a.events-faqs:hover i,.navbar-nav li.active .dropdown-wrap li.active a.events-faqs i,.navbar-nav li.active .dropdown-wrap li a.event-faqs:hover i,.navbar-nav li.active .dropdown-wrap li.active a.event-faqs i {
-		background-image: url(../i/nav-events-faqs-white.png);
 	}
 						
 	
@@ -434,6 +369,7 @@ header {
 						}
 						a {
 							background: none;
+							color: #fff;
 							font-weight: normal;
 							height: 27px;
 							line-height: 27px;
@@ -501,12 +437,9 @@ header {
 		}
 	}
 
-
 /* pagination */
-.paginationWrap {
-    .pagination {
-        margin-top: 0;
-    }
+.paginationWrap .pagination{
+    margin-top: 0;    
 }
 
 
@@ -586,6 +519,7 @@ header {
     }
 }
 
+
 /* sponsors */
 .sponsors {
     img {
@@ -609,6 +543,9 @@ header {
 }
 .sponsorsCentered .sponsors .center-block &>h3,.sponsorsCentered .sponsors .center-block &>div,.sponsorsCentered .sponsors .center-block &>hr {
     display: none;
+}
+.sponsorContact .error {
+	color: red;
 }
 
 
@@ -636,45 +573,43 @@ header {
             margin-bottom: 15px;
             box-sizing: border-box;
             a {
+				background: url(../i/nav-footer.png) no-repeat;
                 color: #666;
                 display: inline-block;
                 font-size: 13px;
                 margin-right: 20px;
                 padding-top: 110px;
                 text-align: center;
-                width: 100px;            
+                width: 100px;
 				&:hover {
 					text-decoration: none;
-					color: #29abe2;
+					color: @green;
 				}
-				&.program {
-					background: url(../i/icon-program.png) no-repeat;
-					background-size: contain;
+				&.program { 
+					background-position: @nav-foot-program @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-program @nav-foot-hover; }
 				}
-				&.blog {
-					background: url(../i/icon-blog.png) no-repeat;
-					background-size: contain;
+				&.blog { 
+					background-position: @nav-foot-blog @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-blog @nav-foot-hover; }
 				}
-				&.photos {
-					background: url(../i/icon-photos.png) no-repeat;
-					background-size: contain;
+				&.photos { 
+					background-position: @nav-foot-photos @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-photos @nav-foot-hover; }
 				}
-				&.movies {
-					background: url(../i/icon-movies.png) no-repeat;
-					background-size: contain;
+				&.movies { 
+					background-position: @nav-foot-movies @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-movies @nav-foot-hover; }
 				}
-				&.twitter {
-					background: url(../i/icon-twitter.png) no-repeat;
-					background-size: contain;
+				&.twitter { 
+					background-position: @nav-foot-twitter @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-twitter @nav-foot-hover; }
 				}
-				&.sponsorship {
-					background: url(../i/icon-sponsorship.png) no-repeat;
-					background-size: contain;
+				&.sponsorship { 
+					background-position: @nav-foot-sponsorship @nav-foot-normal; 
+					&:hover { background-position: @nav-foot-sponsorship @nav-foot-hover; }
 				}
-			}
-        }
-        li.alt {
-            padding-left: 15px;
+            }
         }
     }
     .poweredBy {
@@ -688,26 +623,6 @@ header {
         width: 304px;
         display: inline-block;
     }
-}
-	
-	
-/* modal style */
-.modal{
-	overflow: hidden;
-}
-.modalBox {
-    background: #fffffe;
-    border: 8px solid #333;
-    color: #333;
-    .boxContent {
-        padding: 14px 10px 0;
-    }
-}
-.message {
-	color: green;
-}
-.sponsorContact .error {
-	color: red;
 }
 
 
@@ -765,13 +680,13 @@ header {
             height: 27px;
             border: 4px solid transparent;
             margin: 8px 0 0 0;
-			&.current {
-				cursor:default;
-				&:hover {
-					text-decoration:none;
-				}
-			}
-		}
+        }
+        a.current {
+            cursor:default;
+        }
+        a.current:hover {
+            text-decoration:none;
+        }
         span {
             float:left;
             margin: 14px 8px 10px;
@@ -1516,7 +1431,8 @@ header {
     }
 }
 
-		
+
+
 /* top right social icos */
 #topRightSocialMedia {
     overflow: hidden;
@@ -1969,46 +1885,45 @@ header {
                 text-align: center;
                 margin-left: 36px;
                 box-sizing: content-box;
-				&:hover {
-					text-decoration: none;
-					height: 65px;
-				}
-			}
+            }
+            a:hover {
+                text-decoration: none;
+                height: 65px;
+            }
         }
         & > h2.ct-cp {
             margin-left: 0;
             a {
                 margin-left: 0;
                 background: #1B9F9F url(../i/wow-win.png) 0 0;
-				&:hover {
-					margin-left: 0;
-					border-bottom: 10px solid #178787;
-				}
-			}
+            }
+            a:hover {
+                margin-left: 0;
+                border-bottom: 10px solid #178787;
+            }
         }
         & > h2.ct-ui {
             a {
                 margin-left: 0;
-				&:hover {
-					margin-left: 0;
-					border-bottom: 10px solid #C56046;
-				}
-			}
+            }
+            a:hover {
+                margin-left: 0;
+                border-bottom: 10px solid #C56046;
+            }
         }
         & > h2.ct-wf {
             a {
                 margin-left: 0;
                 background: #F68E69 url(../i/wow-win.png) 0 -500px;
-				&:hover {
-					margin-left: 0;
-					border-bottom: 10px solid #D3714D;
-					height: 65px;
-				}
-			}
+            }
+            a:hover {
+                margin-left: 0;
+                border-bottom: 10px solid #D3714D;
+                height: 65px;
+            }
         }
     }
 }
-
 
 
 /* shedule table */
@@ -2175,20 +2090,20 @@ header {
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
 }
-	h3 {
-		font-size: 20px;
-		color: #333;
-		font-weight: normal;
-		float: left;
-		line-height: 30px;
-	}
-	select {
-		height: 30px;
-		border: 1px solid #ccc;
-		background: #f9f9f9;
-		width: 116px;
-		float: right;
-	}
+.widget_archive h3, .widget_categories h3 {
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+    float: left;
+    line-height: 30px;
+}
+.widget_archive select, .widget_categories select {
+    height: 30px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    width: 116px;
+    float: right;
+}
 .tco14-pages {
     display: none !important;
 }
@@ -2197,11 +2112,9 @@ header {
 /**
  * Post list Item
  */
-article.posts ul, article.posts ol {
-    margin: 15px;
-}
 article.posts {
     ul {
+		margin: 15px;
         li {
             background: url(../i/orange-dot.png) 0 4px no-repeat;
             line-height: 24px;
@@ -2210,6 +2123,7 @@ article.posts {
         }
     }
     ol {
+		margin: 15px;
         li {
             line-height: 24px;
             list-style: decimal;
@@ -2245,8 +2159,6 @@ article.posts {
 .panel-body {
     border-top: none !important;
 }
-
- 
 /* End of Collasible style */
 
 /**
@@ -2431,31 +2343,41 @@ ul.nav-tabs {
 /**
  * Embed Video Responsively
  */
-.embed-container { 
-	position: relative; 
-	padding-bottom: 56.25%; 
-	padding-top: 30px; 
-	height: 0; 
-	overflow: 
-	hidden; 
-	max-width: 100%; 
-	height: auto; 
-} 
-.embed-container iframe, .embed-container object, .embed-container embed { 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 100%; 
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow:hidden;
+    max-width: 100%;
+    height: auto;
+}
+.embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 /* end of embed video responsively */
 
 
-.img-responsive {
-	margin: auto;
+/**
+ * Onsite Schedule
+ */
+.sunday-november-16 tbody td:first-child,
+.monday-november-17 tbody td:first-child,
+.tuesday-november-18 tbody td:first-child,
+.wednesday-november-19 tbody td:first-child {
+	width: 30%;
 }
+/* End of onsite sched */
+
 .lead {
     font-size: 17px !important;
+}
+hr {
+    margin: 10px 0 !important;
 }
 .label-info {
     background-color: #29abe2;
@@ -2463,10 +2385,10 @@ ul.nav-tabs {
 .btn-primary {
     background-color: #29abe2;
     border-color: #0071bc;
-	&:hover {
-		background-color: #0071bc;
-		border-color: #0071bc;
-	}
+}
+.btn-primary:hover {
+    background-color: #0071bc;
+    border-color: #0071bc;
 }
 .mashathon-challenge {
     width: 50%;
@@ -2474,7 +2396,7 @@ ul.nav-tabs {
         width: 100px;
     }
 }
-	
+
 	
 /* Data Tables */
 .dataTables_filter {
@@ -2527,17 +2449,40 @@ ul.nav-tabs {
 
 /* Member and Staff Information initialy hidden */
 #form_member, #form_staff, #travel_form, #form_visa {
-    display: none;
+	display: none;
 }
-#tblVisaRequest {
-    .panel {
-        border: 1px solid #428bca;
-    }
-    .row-even {
-        background-color: #eee;
+#tblVisaRequest .panel {
+	border: 1px solid #428bca;
+}
+#tblVisaRequest .row-even {
+	background-color: #eee;
+}
+
+/* Dev Con and Celebrity Match */
+.btn-box {
+    background: #20aae1;
+    border-bottom: 3px solid #1b91bf;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+	&:hover {
+		background: #1b91bf;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+.cta-box {
+    min-height: 145px;
+    h2 {
+        color: #0071bc;
+        margin-bottom: 10px;
     }
 }
 
+	
 
 /* New Home ----------------------------------------------------------------------------------------------------------------*/
 #pHome .navbar, #pHome-Staging .navbar {
@@ -2740,3 +2685,4 @@ ul.nav-tabs {
         width: auto;
     }
 }
+
