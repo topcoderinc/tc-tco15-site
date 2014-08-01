@@ -15,7 +15,7 @@ $title_lower = str_replace ( '.', '-', $title_lower );
 $pid = $post->ID;
 $image 	= wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 $lead_text = get_post_meta ( $post->ID, '_cmb_lead_text', true );	
-
+$page_title = get_post_meta ( $post->ID, '_cmb_page_title', true );
 ?>
 </head>
 <body id="<?php echo 'p'.$title_lower ?>">
@@ -36,7 +36,7 @@ $lead_text = get_post_meta ( $post->ID, '_cmb_lead_text', true );
 		<div class="pTitleBar">
 			<div class="container">				
 				
-				<h1><?php the_title();?></h1>
+				<h1><?php echo $page_title ? $page_title : get_the_title();?></h1>
 				
 				<?php get_template_part ( 'navigation-fourth-level' ); ?>
 							

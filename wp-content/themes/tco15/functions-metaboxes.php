@@ -65,6 +65,12 @@ function additional_page_attr_metaboxes($meta_boxes) {
 							'desc' => '',
 							'id' => $prefix . 'lead_text',
 							'type' => 'wysiwyg'
+					),
+					array (
+							'name' => 'Page Title',
+							'desc' => 'if blank, the actual page title will be used',
+							'id' => $prefix . 'page_title',
+							'type' => 'text'
 					)
 			) 
 	);
