@@ -17,15 +17,15 @@ function tco_tweets_function($atts, $content = null) {
 		$ret = preg_replace ( "#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" target=\"_blank\">\\2</a>", $ret );
 		$ret = preg_replace ( "#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", "\\1<a href=\"http://\\2\" target=\"_blank\">\\2</a>", $ret );
 		$ret = preg_replace ( "/@(\w+)/", "<a href=\"http://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $ret );
-		$ret = preg_replace ( "/#(\w+)/", "<a href=\"http://search.twitter.com/search?q=\\1\" target=\"_blank\">#\\1</a>", $ret );
+		$ret = preg_replace ( "/#(\w+)/", "<a href=\"https://twitter.com/hashtag/\\1?src=hash\" target=\"_blank\">#\\1</a>", $ret );
 		return $ret;
 	}
 	
 	$search = $key;
-	$consumerkey = "JJCRZlSBK8ebevdEEUCw";
-	$consumersecret = "9Nc7T3jSBa9BMHmVvN1tMhxeTlWn2flg1IrQySHA";
-	$accesstoken = "17635954-nUkNRsUU2Mbt37wu1T16JbvruVLcKXk9p60nH8MG3";
-	$accesstokensecret = "kEhs4FMGjgcNaOjvF9QeYYdJU3ZFR4MW5VI1RJ2AE";
+	$consumerkey = "zf6xRR8ZtvHoNMKNxvJrDJfOV";
+	$consumersecret = "o7fGFNbPdaG928pC5NiqrUS54UMnf4iEo26AuDusowerXN7kWO";
+	$accesstoken = "17635954-dJsg88dcztdoJ9yEZN2apFAi0ohwBBD1RAcu3eXd3";
+	$accesstokensecret = "Bz0PdNWnSmwHoIPilwJtYKXUUV4JJNEurj1467xRlQMQt";
 	function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
 		$connection = new TwitterOAuth ( $cons_key, $cons_secret, $oauth_token, $oauth_token_secret );
 		return $connection;
