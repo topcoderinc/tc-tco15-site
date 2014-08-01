@@ -6,7 +6,8 @@ function tco_schedule_function($atts, $content = null) {
 	extract ( shortcode_atts ( array (
 		"category" 	=> "",
 		"headers"	=> "", 
-		"class"		=> ""
+		"class"		=> "",
+		"colwidth"	=> ""
 	), $atts ) );
 	
 	$tco_sch_rows = "";
@@ -25,7 +26,7 @@ function tco_schedule_function($atts, $content = null) {
 		if ( $arrHeaders ) {
 			$th = '';
 			foreach( $arrHeaders as $k=>$v ) {
-				$th .= '<th>'.trim($v).'</th>';
+				$th .= '<th width="'.$colwidth.'">'.trim($v).'</th>';
 			}
 		}
 	}
@@ -65,9 +66,9 @@ function tco_schedule_function($atts, $content = null) {
 				$title = get_the_title();	
 			}
 			
-			$tco_sch_rows .= "<tr>
-					<td>" . $title . "</td>
-					<td>" . $con . "</td>";
+			$tco_sch_rows .= '<tr>
+					<td width="'.$colwidth.'">' . $title . '</td>
+					<td width="'.$colwidth.'">' . $con . '</td>';
 			if ( isset($arrHeaders) && count($arrHeaders)>2 ) {		
 				for( $ctr=1; $ctr <= (count($arrHeaders)-2); $ctr++) {
 					$tco_sch_rows .= "<td>". get_post_meta( $pid, '_cmb_extra_column_' . $ctr, true ) ."</td>";
