@@ -10,7 +10,7 @@
 				<span class="icon-bar"></span>			
 			</button>
 			<?php /*<a class="navbar-brand" href="<?php echo home_url(); ?>"><span class="sr-only"><?php bloginfo('name'); ?></span></a>*/ ?>
-			<a class="navbar-brand" href="http://studio.topcoder.com/?module=ViewContestDetails&ct=30044678" target="_blank"><span class="sr-only"><?php bloginfo('name'); ?></span></a>			
+			<a class="navbar-brand" href="http://www.topcoder.com/challenge-details/30044678/?type=design" target="_blank"><span class="sr-only"><?php bloginfo('name'); ?></span></a>			
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
