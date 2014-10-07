@@ -2,7 +2,7 @@
 	error_reporting(0);
 	require('class.XMLHttpRequest.php');
 	require('class.SimpleDOM.php');
-	require('color.php');
+	//require('color.php');
 
 	$cr 	= $_GET['cr'];
 	$cd 	= $_GET['cd'];
