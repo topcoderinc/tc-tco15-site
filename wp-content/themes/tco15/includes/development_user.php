@@ -13,9 +13,9 @@
 		
 		$data = array(
 			'module' 	=> 'BasicData',
-			'c'			=> 'tco_software_leaderboard_user_detail',
+			'c'			=> 'tco_dev_leaderboard_user_detail_2015',
 			'dsid' 		=> '30',
-			'cd' 		=> '504',
+			'cd' 		=> '563',
 			'cr' 		=> $cr
 		);
 		$ajax1 = new XMLHttpRequest();
@@ -34,7 +34,7 @@
 			'module' 	=> 'BasicData',
 			'c'			=> 'tco_software_leaderboard_user_detail',
 			'dsid' 		=> '30',
-			'cd' 		=> '505',
+			'cd' 		=> '564',
 			'cr' 		=> $cr
 		);
 		$ajax2 = new XMLHttpRequest();
@@ -53,7 +53,7 @@
 			'module' 	=> 'BasicData',
 			'c'			=> 'tco_software_leaderboard_user_detail',
 			'dsid' 		=> '30',
-			'cd' 		=> '506',
+			'cd' 		=> '565',
 			'cr' 		=> $cr
 		);
 		$ajax3 = new XMLHttpRequest();
@@ -73,7 +73,7 @@
 			'module' 	=> 'BasicData',
 			'c'			=> 'tco_software_leaderboard_user_detail',
 			'dsid' 		=> '30',
-			'cd' 		=> '507',
+			'cd' 		=> '566',
 			'cr' 		=> $cr
 		);
 		$ajax4 = new XMLHttpRequest();
@@ -94,7 +94,7 @@
 	} else {
 		$data = array(
 			'module' 	=> 'BasicData',
-			'c'			=> 'tco_software_leaderboard_user_detail',
+			'c'			=> 'tco_dev_leaderboard_user_detail_2015',
 			'dsid' 		=> '30',
 			'cd' 		=> $cd,
 			'cr' 		=> $cr

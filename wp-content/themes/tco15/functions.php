@@ -1,7 +1,6 @@
 <?php
 define ( 'WP_DEBUG_DISPLAY', true );
 
-include_once 'functions-theme-opts.php';
 include_once 'functions-custom-post-types.php';
 include_once 'functions-metaboxes.php';
 
@@ -26,7 +25,15 @@ include_once 'shortcodes/tco_event_list.php';
 include_once 'shortcodes/tco_youtube.php';
 
 
-/* logo */
+// Redux Theme Options
+require_once (dirname(__FILE__) . '/lib/options-config.php');
+
+
+/**
+ * LOGO 
+ *
+ * TODO: move this to Redux framework
+ */
 
 define ( 'HEADER_TEXTCOLOR', '' );
 define ( 'HEADER_IMAGE', '%s/i/logo.png' ); // %s is the template dir uri
