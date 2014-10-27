@@ -43,12 +43,13 @@ function get_table($period, $dsid, $c) {
 		$arrJson = json_decode($response['body']);
 		
 		foreach ( $arrJson as $row ) {			
+			$placement_points = (array)$row->placement_points;
 			$html .= '
 				<tr>
 					<td><a href="./user-details/?cr='.$row->user_id.'&cd='.$period.'">'.$row->handle.'</a></td>
 					<td class="text-center">'.$row->complete_projects.'</td>
 					<td class="text-center">'.$row->projects_in_progress.'</td>
-					<td class="text-center"><strong>'.number_format((float)$row->placement_points,2).'</strong></td>
+					<td class="text-center"><strong>'.number_format($row->placement_points[0],2).'</strong></td>
 				</tr>';			
 			$vars[] = $row;
 		}
@@ -104,17 +105,22 @@ function get_studio_table($period, $dsid, $c) {
 		$arrJson = json_decode($response['body']);
 		usort($arrJson, function($a, $b) {
 			return $b->points - $a->points;
-		});	
+		});			
 		
-		foreach ( $arrJson as $row ) {			
+		foreach ( $arrJson as $row ) {
+			$current_contests = (array)$row->current_contests;
+			$potential_points = (array)$row->potential_points;
+			$total_potential_points = (array)$row->total_potential_points;
+			$points = (array)$row->points;
+			
 			$html .= '
 					<tr>
 						<td>'.$row->handle.'</td>
 						<td class="text-center">'.$row->complete_contests.'</td>
-						<td class="text-center">'.($row->current_contests>0 ? number_format((float)$row->current_contests,0) : 0).'</td>
-						<td class="text-center">'.($row->potential_points>0 ? number_format((float)$row->potential_points,2) : 0).'</td>
-						<td class="text-center">'.($row->total_potential_points>0 ? number_format((float)$row->total_potential_points,2) : 0).'</td>
-						<td class="text-center"><strong>'.number_format((float)$row->points,2).'</strong></td>
+						<td class="text-center">'. number_format($current_contests[0],0).'</td>
+						<td class="text-center">'. number_format($potential_points[0],2).'</td>
+						<td class="text-center">'. number_format($total_potential_points[0],2).'</td>
+						<td class="text-center"><strong>'.number_format($points[0],2).'</strong></td>
 					</tr>';			
 		}
 		
@@ -169,11 +175,12 @@ function get_copilot_table($sdate, $edate) {
 			';
 			foreach ( $xml->children() as $row ) {
 				$fulfillment = $row->fulfillment!='' ? $row->fulfillment.'%' : 'N/A';
+				$line_item_amount = (array)$row->line_item_amount;
 				$html .= '
 					<tr>
 						<td>'.$row->handle.'</td>
 						<td class="text-center">'.$fulfillment.'</td>
-						<td class="text-center"><strong>$'.number_format((float)$row->line_item_amount,2).'</strong></td>
+						<td class="text-center"><strong>$'.number_format($line_item_amount[0],2).'</strong></td>
 					</tr>';
 			}	
 			
