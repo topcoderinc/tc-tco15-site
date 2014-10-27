@@ -49,7 +49,7 @@ function get_table($period, $dsid, $c) {
 					<td><a href="./user-details/?cr='.$row->user_id.'&cd='.$period.'">'.$row->handle.'</a></td>
 					<td class="text-center">'.$row->complete_projects.'</td>
 					<td class="text-center">'.$row->projects_in_progress.'</td>
-					<td class="text-center"><strong>'.number_format($row->placement_points[0],2).'</strong></td>
+					<td class="text-center"><strong>'.number_format($placement_points[0],2).'</strong></td>
 				</tr>';			
 			$vars[] = $row;
 		}
