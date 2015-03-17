@@ -28,6 +28,7 @@
 </footer>
 
 <!-- modal -->
+<?php /*
 <!--  <div id="modalBg"></div> -- end of #modalBg -->
 <div id="registerModal" class="modal fade in" >
 <div class="modal-dialog">
@@ -102,5 +103,8 @@
 
 </div></div>
 </div>
+*/ ?>
+
+<?php get_template_part ( 'latestnews' ); ?>
 
 <?php wp_footer(); ?> 

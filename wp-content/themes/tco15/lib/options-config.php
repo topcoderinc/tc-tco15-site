@@ -470,6 +470,37 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),					
                 ),
             );
+			
+			$this->sections[] = array(
+                'title'      => 'Latest News',
+                'desc'       => '',
+                'icon'       => 'el-icon-comment',
+                'fields'   	 => array(
+					array(
+                        'id'        => 'latest_news_on',
+                        'type'      => 'switch',
+                        'title'     => 'Show Latest News Popup',
+						'default'	=> true,
+						'on'		=> 'Yes',
+						'off'		=> 'No'
+                    ),					
+					array(
+                        'id'        => 'latest_news_image',
+                        'type'      => 'media',
+                        'title'     => 'Featured Image',
+                    ),	
+					array(
+                        'id'        => 'latest_news_teaser',
+                        'type'      => 'editor',
+                        'title'     => 'News Teaser',
+                    ),	
+					array(
+                        'id'        => 'latest_news_link',
+                        'type'      => 'text',
+                        'title'     => 'Link',
+                    ),		
+                ),
+            );
         }
 
         public function setHelpTabs() {

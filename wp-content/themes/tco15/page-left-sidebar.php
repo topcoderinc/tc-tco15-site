@@ -140,6 +140,7 @@ $pid = $post->ID;
 						<?php endif;?>
 				</div>
 			</div>
+			
 		</div>
 		<!-- /.article -->
 		<?php  endif;?>

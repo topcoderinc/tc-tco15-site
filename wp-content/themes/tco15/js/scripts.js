@@ -102,40 +102,6 @@ jQuery(document).ready(function($){
         
         callYoutube($currentSlide,'pauseVideo');
     });
-    
-    		    
-    // register button
-    $('.registerBtn').hide();
-	$('#you-are-registered').hide();
-	$.ajax({
-		type: "GET",
-		url: "https://www.topcoder.com/tc/eventreg",
-		data: "event="+eventID+"&agree=false&cb=?",
-		cache: false,
-		dataType: "jsonp",
-		success: function(data) {
-						
-			switch(data.response) {
-				case 'already registered':					
-					$('#you-are-registered').show();
-					break;
-				default:
-					$('.registerBtn').show();
-					break;
-			}
-		}
-	});
-
-	
-	$(".registerBtn").click(function(){
-        $("#registerModal").find(".success,.error").hide();
-        $("#registerModal").find("form input").val("");
-		$(".registerSuc").hide();
-		$(".register").show();
-		$('.agreementTerm').hide();
-		$(".register").find('.error').hide();
-		$('#registerModal').modal('show');
-    })
 	
 
 	// get user ID
@@ -608,20 +574,6 @@ jQuery(document).ready(function($){
 				_this.loadModal($(this),true);
 				 return false;
 			});
-			
-			$('form #password').keyup(function(e){
-				var key = e.keyCode || e.which;
-				if(key == 13){
-					doLogin(false);
-				}
-				
-			});
-			
-			// sign up button
-			$("#btnModalSignUp").click(function() {
-				doLogin(false);
-			});
-			
 						
 			$('.mainRail .rules').each(function() {
 				$(this).find('h3:first').addClass('first');
@@ -634,109 +586,6 @@ jQuery(document).ready(function($){
 		}
 	};
 	
-
-	// Accepts Terms and Conditions
-	$('#btnAgree').click(function() {
-		doLogin(true);
-	});
-
-
-	// Rejects Terms and Conditions
-	$('#rejectBtn').click(function() {
-		$(".agreementTerm .error").removeClass('hide').show();
-	});
-
-	
-	// Do the login action.	
-	doLogin = function(agreed){
-		$("#frmTCLogin .error").text(' ');
-		if (agreed == undefined) {
-			agreed = false;
-		}
-			
-		if ( $("#handle").val()=='' || $("#password").val()=='' ) {
-			$("#frmTCLogin .error").text('Handle and Password are required.');
-			$("#frmTCLogin .error").show().removeClass('hide');
-		} else {
-			$("#welcomePane").hide();
-			$("#frmTCLogin .error").hide();
-			$('.loading').show();
-			
-			$.ajax({
-				type: "GET",
-				url: "https://www.topcoder.com/tc/eventreg",
-				data: "handle="+$("#handle").val()+"&password="+$("#password").val()+"&event="+eventID+"&agree="+agreed+"&cb=?",
-				cache: false,
-				dataType: 'jsonp', 
-				success: function(data){
-					
-					$('.loading').hide();										
-					
-					switch(data.response) {					
-						
-						case "already registered":
-							$('.registerSuc h1').text('Thank you!');
-							$('.registerSuc p').text(msg_already_registered);
-							$(".registerSuc").show().removeClass('hide');
-							$(".register").hide();
-							$('.agreementTerm').hide();
-							$(".register").find('.error').hide();
-							$(".registerBtn").hide();
-							$('#you-are-registered').show();
-							redirectMember();							
-							break;
-
-						case "success":
-							$('.registerSuc h1').text(msg_success);
-							$(".registerSuc").show().removeClass('hide');
-							$('.agreementTerm').hide();
-							$(".register").find('.error').hide();
-							$(".registerBtn").hide();
-							$('#you-are-registered').show();
-							redirectMember();
-							break;
-
-						case "hasn't registered":
-							$(".registerSuc").hide();
-							$(".register").hide()
-							$('.agreementTerm').show().removeClass('hide');
-							$(".register").find('.error').hide();
-							break;    
-							
-						case "already agreed":
-							$('.registerSuc h1').text('Thank you!');
-							$('.registerSuc p').text(msg_already_agreed);
-							$(".registerSuc").show().removeClass('hide');
-							$(".register").hide();
-							$('.agreementTerm').hide();
-							$(".register").find('.error').hide()
-							$(".registerBtn").hide();
-							$('#you-are-registered').show();
-							redirectMember();					
-							break;
-							
-						case "bad login":
-						default:
-							$(".registerSuc").hide();
-							$(".register").show().removeClass('hide');
-							$('.agreementTerm').hide();
-							$(".register").find('.error').show().removeClass('hide').text('Invalid handle/password combination.');							
-					}	
-								
-				},
-				error: function(data,e) {				
-					if (e=='parsererror') {
-						//location.reload(true);
-						doLogin(agreed);
-					} else {
-						$('.loading').hide();
-						$(".register").find('.error').show().text('Login Error.');
-					}
-				}
-			});
-		} 
-		
-	}
 	
 	
 	// Parse the string.
@@ -779,4 +628,22 @@ jQuery(document).ready(function($){
 			}
 		});	
 	}
+	
+	
+	// Latest News
+	$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
+	if ( $('#latest-news-popup').css('display')=='block' ) {
+		$(window).resize(function(){
+			$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
+		});
+	}
+	
+	if ( $('#wpadminbar').length>0 ) {
+		$('#latest-news-popup').css('top','92px');
+	}
+	
+	$('#latest-news-popup .news-close').click(function(){
+		$('#latest-news-popup').slideUp(300);
+	});
+	
 })
