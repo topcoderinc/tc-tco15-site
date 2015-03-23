@@ -77,6 +77,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             return $defaults;
         }
 
+
         // Remove the demo link and the notice of integrated demo from the redux-framework plugin
         function remove_demo() {
 
@@ -88,6 +89,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 remove_action('admin_notices', array(ReduxFrameworkPlugin::instance(), 'admin_notices'));
             }
         }
+
 
         public function setSections() {
 
