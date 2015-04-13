@@ -79,17 +79,20 @@ jQuery(document).ready(function($) {
 	
 	$('.subpagenav a').click(function(){
 		
-		// set active nav
-		$('.subpagenav a').removeClass('active');
-		$(this).addClass('active');
+		if ( !$(this).hasClass('external') ) {
 		
-		// show page
-		var subpage_id = $(this).data('page');
-		$('.subpage').hide();
-		$('#subpage-'+subpage_id).removeClass('hide').show();
-		
-		// set title
-		$('#event-pages .tab-title').text($(this).text());
+			// set active nav
+			$('.subpagenav a').removeClass('active');
+			$(this).addClass('active');
+			
+			// show page
+			var subpage_id = $(this).data('page');
+			$('.subpage').hide();
+			$('#subpage-'+subpage_id).removeClass('hide').show();
+			
+			// set title
+			$('#event-pages .tab-title').text($(this).text());
+		}
 	});
 	
 	// set initial display

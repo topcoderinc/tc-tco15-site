@@ -7,8 +7,8 @@
 		'parent'		=> $post->ID,
 		'post_type'		=> 'page',
 		'post_status' 	=> 'publish',
-		'order'    		=> 'ASC',
-		'orderby'       => 'menu_order',
+		'sort_order'    => 'ASC',
+		'sort_column'   => 'menu_order',
 	);
 	
 	$pages = get_pages($args);
@@ -91,16 +91,17 @@
 									'parent'		=> $page->ID,
 									'post_type'		=> 'page',
 									'post_status' 	=> 'publish',
-									'order'    		=> 'ASC',
-									'orderby'       => 'menu_order',
+									'sort_order'    => 'ASC',
+									'sort_column'   => 'menu_order',
 								);
 								
 								$subpages[$page->ID] = get_pages($subpage_args);
 								
 								if ($subpages[$page->ID]) {
 									foreach( $subpages[$page->ID] as $kk=>$subpage ) :
+										$external = get_post_meta( $subpage->ID, '_cmb_reg-event-external', true );
 							?>
-								<li class="hide subpagenav subpagenav-<?php echo $k+1; ?>"><a href="javascript:;" data-page="<?php echo $subpage->ID; ?>"><?php echo strtoupper($subpage->post_title); ?></a></li>
+								<li class="hide subpagenav subpagenav-<?php echo $k+1; ?>"><a href="<?php echo $external ? $external : 'javascript:;'; ?>" <?php if ($external!='') : ?>target="_blank" class="external"<?php endif; ?> data-page="<?php echo $subpage->ID; ?>"><?php echo strtoupper($subpage->post_title); ?></a></li>
 							<?php	
 									endforeach;
 								}

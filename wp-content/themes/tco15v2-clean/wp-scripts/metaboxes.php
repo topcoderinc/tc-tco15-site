@@ -74,6 +74,11 @@ function additional_page_attr_metaboxes($meta_boxes) {
 						'id' 	=> $prefix . 'reg-event-location',
 						'type' 	=> 'text'
 					),
+					array (
+						'name' 	=> 'External Link',
+						'id' 	=> $prefix . 'reg-event-external',
+						'type' 	=> 'text'
+					),
 			) 
 	);
 
