@@ -87,6 +87,9 @@ jQuery(document).ready(function($) {
 		var subpage_id = $(this).data('page');
 		$('.subpage').hide();
 		$('#subpage-'+subpage_id).removeClass('hide').show();
+		
+		// set title
+		$('#event-pages .tab-title').text($(this).text());
 	});
 	
 	// set initial display
