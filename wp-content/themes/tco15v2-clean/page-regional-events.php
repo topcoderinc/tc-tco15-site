@@ -27,9 +27,10 @@
 					<li><a href="javascript:;" class="tab">3</a></li>
 					<li><a href="javascript:;" class="tab">4</a></li>
 					<li><a href="javascript:;" class="tab">5</a></li>
+					<li><a href="javascript:;" class="tab">6</a></li>
 				</ul>
 				
-				<?php for ($i=0; $i<5; $i++) : ?>
+				<?php for ($i=0; $i<6; $i++) : ?>
 				<div id="event-tab-<?php echo $i+1; ?>" class="tab-display<?php echo $i>0 ? ' hide' : ''; ?>">
 					<?php if ( isset($pages[$i]) ) : 
 						$date = strtotime(get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true ));
@@ -46,7 +47,7 @@
 			</div>
 			<div class="info">
 			
-				<?php for ($i=0; $i<5; $i++) : 
+				<?php for ($i=0; $i<6; $i++) : 
 					$bg = '';
 					if ( has_post_thumbnail( $pages[$i]->ID ) ) {
 						$bg = wp_get_attachment_image_src(get_post_thumbnail_id( $pages[$i]->ID ), 'full');

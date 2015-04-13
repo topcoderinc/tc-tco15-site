@@ -294,7 +294,11 @@ main .article ul.nav-tabs.nav-justified li.active a {
 #event-summary .dates .controls li {
   display: inline;
   float: left;
-  width: 20%;
+  margin-right: 0.4%;
+  width: 16.33%;
+}
+#event-summary .dates .controls li:last-child {
+  margin-right: 0;
 }
 #event-summary .dates .controls li a {
   background-color: rgba(0, 0, 0, 0.3);
@@ -797,8 +801,8 @@ footer .bottom-section .powered {
     float: none;
     font-size: 30px;
     font-weight: 900;
-    height: 64px;
-    line-height: 64px;
+    height: 54px;
+    line-height: 54px;
     margin-bottom: 1px;
     padding-left: 15px;
     text-align: left;
