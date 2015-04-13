@@ -29,7 +29,7 @@
 			<div class="bottom-section text-center">
 				<a href="http://www.topcoder.com/" class="powered"><span class="sr-only">powered by Topcoder</span></a>
 			</div>
-		</footer>		
+		</footer>
 		
 		<?php wp_footer(); ?>
 

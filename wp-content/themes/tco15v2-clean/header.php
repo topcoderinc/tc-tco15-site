@@ -82,6 +82,8 @@
         				
 			</nav>
 			
+			<?php get_template_part ( 'latestnews' ); ?>
+			
 		</header>
         
         

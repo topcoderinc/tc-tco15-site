@@ -107,4 +107,22 @@ jQuery(document).ready(function($) {
 	var reg_event_active_tab = $('.tab.active').text();
 	$('.subpagenav-'+reg_event_active_tab).removeClass('hide');
 	
+	
+	// Latest News
+	$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
+	if ( $('#latest-news-popup').css('display')=='block' ) {
+		$(window).resize(function(){
+			$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
+		});
+	}
+	
+	if ( $('#wpadminbar').length>0 ) {
+		$('#latest-news-popup').css('top','92px');
+	}
+	
+	$('#latest-news-popup .news-close').click(function(){
+		$('#latest-news-popup').slideUp(300);
+	});
+	
+	
 });
