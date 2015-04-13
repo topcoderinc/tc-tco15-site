@@ -12,6 +12,7 @@ function tco_tweets_function($atts, $content = null) {
 		'class'	=> '',
 		'limit'	=> 10
 	), $atts ) );
+	
 	$key = get_option ( 'twtr_keyword' );
 	function twitterify($ret) {
 		$ret = preg_replace ( "#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" target=\"_blank\">\\2</a>", $ret );
