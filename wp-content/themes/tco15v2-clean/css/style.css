@@ -356,6 +356,39 @@ main .article ul.nav-tabs.nav-justified li.active a {
   font-weight: 900;
   padding-left: 0;
 }
+#event-pages {
+  margin-top: 1px;
+}
+#event-pages .titles-tabs {
+  background: #333;
+}
+#event-pages .titles-tabs .tab-title {
+  padding-left: 15px;
+}
+#event-pages .titles-tabs ul {
+  padding-left: 0;
+  list-style: none;
+}
+#event-pages .titles-tabs ul li {
+  display: inline;
+}
+#event-pages .titles-tabs ul li a {
+  background: #242424;
+  color: #aaa;
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  padding: 0 15px;
+}
+#event-pages .titles-tabs ul li a:hover {
+  background: #111;
+  text-decoration: none;
+}
+#event-pages .titles-tabs ul li a.active {
+  background: #000;
+  color: #fff;
+}
 #sidebar-right {
   margin-top: 43px;
 }
@@ -844,6 +877,9 @@ footer .bottom-section .powered {
   #event-pages .titles-tabs {
     background: #333;
     padding-left: 15px;
+  }
+  #event-pages .titles-tabs .tab-title {
+    padding-left: 0;
   }
   #event-pages .titles-tabs ul {
     float: right;
