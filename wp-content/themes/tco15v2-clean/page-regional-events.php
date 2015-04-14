@@ -33,10 +33,17 @@
 				<?php for ($i=0; $i<6; $i++) : ?>
 				<div id="event-tab-<?php echo $i+1; ?>" class="tab-display<?php echo $i>0 ? ' hide' : ''; ?>">
 					<?php if ( isset($pages[$i]) ) : 
-						$date = strtotime(get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true ));
+						$raw_date 	= get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true );
+						$date 		= $raw_date!='' ? strtotime( $raw_date ) : '';
+						
+						if($date!='') :
 					?>
-					<span class="day"><?php echo date('d', $date); ?></span>
-					<span class="month"><?php echo date('M', $date); ?></span>
+						<span class="day"><?php echo date('d', $date); ?></span>
+						<span class="month"><?php echo date('M', $date); ?></span>
+						<?php else : ?>
+						<span class="day">--</span>
+						<span class="month">TBD</span>
+						<?php endif; ?>
 					<?php else : ?>
 					<span class="day">--</span>
 					<span class="month">TBD</span>
@@ -55,13 +62,14 @@
 				?>
 				<div id="event-details-<?php echo $i+1; ?>" class="details <?php echo ($i>0) ? 'hide' : 'active'; ?>" <?php if ($bg!='') : ?>data-bg="<?php echo $bg[0]; ?>"<?php endif; ?>>
 					<?php  if ( isset($pages[$i]) ) : 
-						$date = strtotime(get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true ));
+						$raw_date 	= get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true );
+						$date 		= $raw_date!='' ? strtotime( $raw_date ) : '';
 					?>
 					<h3><?php echo $pages[$i]->post_title; ?></h3>
 					<div class="detail-body">
 						<div class="row">
 							<div class="col-xs-4 when">When :</div>
-							<div class="col-xs-8 when-ans"><?php echo date('d F, Y', $date); ?></div>
+							<div class="col-xs-8 when-ans"><?php echo $date!='' ? date('d F, Y', $date) : 'TBD'; ?></div>
 							<div class="clearfix visible-xs"></div>
 							<div class="col-xs-4 where">Where :</div>
 							<div class="col-xs-8 where-ans"><?php echo get_post_meta( $pages[$i]->ID, '_cmb_reg-event-location', true ); ?></div>
