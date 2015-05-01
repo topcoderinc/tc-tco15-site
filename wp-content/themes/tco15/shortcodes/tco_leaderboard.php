@@ -405,7 +405,7 @@ function tco_leaderboard_function($atts, $content = null) {
 	if ( $track!='algorithm' && $track!='marathon' ) {
 		$html = '
 			<h3>Leaderboard</h3>
-			<ul class="nav nav-tabs">
+			<ul class="nav nav-tabs nav-justified">
 				<li class="active"><a href="#period1">Period 1</a></li>
 				<li><a href="#period2">Period 2</a></li>
 				<li><a href="#period3">Period 3</a></li>

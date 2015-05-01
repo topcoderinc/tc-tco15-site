@@ -70,7 +70,7 @@
 		</section>
 	
 		<section>
-			<?php echo do_shortcode('[tco_carousel limit="6"]'); ?>
+			<?php echo do_shortcode('[tco_carousel limit="15"]'); ?>
 		</section>
 		
 	</div><!-- .container -->
