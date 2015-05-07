@@ -4,6 +4,7 @@
  */
 
 include_once 'shortcodes/tco_calendar.php';
+include_once 'shortcodes/tco_winner.php';
 include_once 'shortcodes/tco_carousel.php';
 include_once 'shortcodes/tco_leaderboard.php';
 include_once 'shortcodes/tco_schedule.php';

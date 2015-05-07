@@ -641,25 +641,6 @@ footer .bottom-section .powered {
 .carousel h2 {
   margin-bottom: 50px;
 }
-.carousel .bracket {
-  background: url(../i/bracket.png);
-  display: inline-block;
-  height: 122px;
-  margin-bottom: 20px;
-  padding: 5px;
-  width: 122px;
-}
-.carousel .handle {
-  color: #29abe2;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-.carousel .handle:hover {
-  color: #f6921e;
-  text-decoration: none;
-}
 .carousel .carousel-indicators li {
   background: #ccc;
   border: none;
@@ -673,6 +654,26 @@ footer .bottom-section .powered {
 }
 .carousel .carousel-indicators li:hover {
   background: #f6921e;
+}
+/* Winner Banner */
+.bracket {
+  background: url(../i/bracket.png);
+  display: inline-block;
+  height: 122px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 122px;
+}
+.handle {
+  color: #29abe2;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.handle:hover {
+  color: #f6921e;
+  text-decoration: none;
 }
 /* Collapsable */
 .panel-group {
