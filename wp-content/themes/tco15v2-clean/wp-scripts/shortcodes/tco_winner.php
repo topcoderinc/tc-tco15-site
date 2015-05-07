@@ -1,65 +1,33 @@
 <?php
 
+
 /*
  * tco_winner
  */
 function tco_winner_function($atts, $content = null) {
 	extract ( shortcode_atts ( array (
-			"orderby" => "menu_order",
-			"order" => "ASC",
-			"limit" => 10,
-			"interval" => "6000" 
+			"id"		=> 0
 	), $atts ) );
-	$content = $content == null ? "Carousels" : $content;
+	$content = $content == null ? "" : $content;
 	
 	$args = array (
-			'post_type' => 'carousel',
-			"orderby" => $orderby,
-			'paged' => $paged,
-			'posts_per_page' => $limit,
-			'order' => $order 
+			'post_type' 		=> 'carousel',
+			'posts_per_page' 	=> 1,
+			'p' 				=> $id 
 	);
-	$slides = new WP_Query ( $args );
-	global $uniqueCounter;
-	$carouselId = 'carousel-' . $uniqueCounter;
-	$slideHtml = "";
-	$carouselNavs = "";
-	$count = 0;
-	if ($slides->have_posts ()) {
-		while ( $slides->have_posts () ) :
-			$slides->the_post ();
-			
-			$slideHtml .= ' <div class="item ' . ($count == 0 ? "active" : "") . '">' . apply_filters ('the_content', get_the_content () ) . '</div>';
-			$carouselNavs .= '<li class="' . ($count == 0 ? "active" : "") . '" data-target="#' . $carouselId . '" data-slide-to="' . $count . '"></li> ';
-			$count += 1;
-		endwhile
-		;
-	}
-	;
 	
 	$html = '';
-	$html .= '<div id="' . $carouselId . '" class="news-carousel carousel slide" data-ride="carousel" data-interval="'.$interval.'">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				   ' . $carouselNavs . '
-				  </ol>
-				
-				  <!-- Wrapper for slides -->			
-				  <div class="carousel-inner">
-				    
-			' . $slideHtml . '					
-				  </div>
-				
-				 <!--  Controls -->
-				  <a class="left carousel-control" href="#' . $carouselId . '" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left"></span>
-				  </a>
-				  <a class="right carousel-control" href="#' . $carouselId . '" data-slide="next">
-				    <span class="glyphicon glyphicon-chevron-right"></span>
-				  </a>
-				</div>';
 	
-	$uniqueCounter += 1;
+	$query = new WP_Query ( $args );
+	if ($query->have_posts ()) {
+		$html = '<div class="winner-banner">';
+		while ( $query->have_posts () ) :
+			$query->the_post ();
+			$html .=  apply_filters ('the_content', get_the_content () );
+		endwhile;
+		$html .= '</div>';
+	}
+	
 	return $html;
 }
 
