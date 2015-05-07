@@ -13,11 +13,12 @@ function tco_carousel_function($atts, $content = null) {
 	$content = $content == null ? "Carousels" : $content;
 	
 	$args = array (
-			'post_type' => 'carousel',
-			"orderby" => $orderby,
-			'paged' => $paged,
-			'posts_per_page' => $limit,
-			'order' => $order 
+			'post_type'			=> 'carousel',
+			"orderby"			=> $orderby,
+			'paged'				=> $paged,
+			'posts_per_page'	=> $limit,
+			'order'				=> $order,
+			'post_status'		=> 'publish',
 	);
 	$slides = new WP_Query ( $args );
 	global $uniqueCounter;
