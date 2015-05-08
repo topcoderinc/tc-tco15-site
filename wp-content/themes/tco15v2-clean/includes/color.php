@@ -4,6 +4,8 @@
 	require_once('class.SimpleDOM.php');
 	
 	function getCoderColor($cr) {
+		return "#000000";
+		/*
 		$data = array(
 			'module' => 'BasicData',
 			'c'=> 'coder_all_ratings',
@@ -41,5 +43,6 @@
 				return "#000000";
 			}
 		}else return "#000000";
+		*/
 	}
 ?>
