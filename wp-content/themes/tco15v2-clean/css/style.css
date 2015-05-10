@@ -1043,6 +1043,9 @@ footer .bottom-section .powered {
   .masthead-full .track-handle span {
     font-size: 21px;
   }
+  .finalist-thumb span {
+    font-size: 18px;
+  }
 }
 /* - large:small laptop */
 @media (min-width: 992px) {
@@ -1084,6 +1087,9 @@ footer .bottom-section .powered {
   }
   .masthead-full .container {
     height: 500px;
+  }
+  .finalist-thumb span {
+    font-size: 30px;
   }
 }
 /* - extra large:desktop */
