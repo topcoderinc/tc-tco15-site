@@ -7,7 +7,7 @@ get_header();
 $masthead		= 'masthead-nophoto';
 $cover_photo 	= get_field('cover_photo');
 if ( $cover_photo ) {
-	if ( $cover_photo['width']>570 ) {
+	if ( $cover_photo['width']>992 ) {
 		$masthead	= 'masthead-full';
 	} else {
 		$masthead	= 'masthead-small';
