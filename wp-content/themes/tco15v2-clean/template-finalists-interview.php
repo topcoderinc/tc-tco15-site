@@ -21,12 +21,14 @@ $q[]		 	= get_field_object('hobbies');
 $q[]		 	= get_field_object('best_tip');
 $q[]		 	= get_field_object('topcoder_story');
 
+$bgPosition 	= get_field('cover_photo_position');
+
 ?>
 
 <main>
 	
 	<?php if ( $masthead=='masthead-full' ) : ?>
-	<div class="<?php echo $masthead; ?>" style="background: url(<?php echo $cover_photo['url']; ?>)">
+	<div class="<?php echo $masthead; ?>" style="background: url(<?php echo $cover_photo['url']; ?>) <?php echo $bgPosition; ?>">
 		<div class="container">
 			<div class="track-handle">
 				<span><?php echo $track; ?> Finalists</span>
