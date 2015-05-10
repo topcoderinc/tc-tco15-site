@@ -7,8 +7,8 @@
 		'parent'		=> $post->ID,
 		'post_type'		=> 'page',
 		'post_status' 	=> 'publish',
-		'order'    		=> 'ASC',
-		'orderby'   	=> 'id',
+		'sort_order'    => 'ASC',
+		'sort_column'   => 'id',
 	);
 	
 	$pages = get_pages($args);
