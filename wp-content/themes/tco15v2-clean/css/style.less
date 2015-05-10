@@ -739,6 +739,74 @@ footer {
 }
 
 
+/* Finalists Page */
+.masthead-full {
+	background-position: 50% 50%;
+	background-size: cover !important;
+	.container {
+		height: 300px;
+		position: relative;
+	}
+	.track-handle {
+		background: rgba(0,0,0,0.5);
+		bottom: 30px;
+		color: #fff;
+		left: 0;
+		padding: 5px 30px;
+		position: absolute;
+		h1 {
+			font-size: 45px;
+			font-weight: @fwExtraBold;
+			line-height: normal;
+			margin: 0;
+		}
+		span {
+			color: #29abe2;
+			font-size: 18px;
+			text-transform: uppercase;
+		}
+	}
+}
+.finalist-thumb {
+	display: block;
+	margin: 15px 0;
+	position: relative;
+	span {
+		background: rgba(0,0,0,0.5);
+		bottom: 0;
+		color: #fff;
+		font-size: 30px;
+		font-weight: @fwExtraBold;
+		left: 0;
+		padding: 5px 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+	&:hover {
+		span {
+			background: rgba(0,0,0,0.75);
+		}
+	}
+}
+
+
+.masthead-finalists {
+	padding: 30px 15px;
+	h1 {
+		font-size: 72px;
+		font-weight: @fwExtraBold;
+		line-height: normal;
+		margin: 0;
+	}
+	span {
+		color: #29abe2;
+		font-size: 21px;
+		text-transform: uppercase;
+	}
+}
+
+
 /* Collapsable */
 .panel-group {
 	margin-bottom: 10px;
@@ -1053,6 +1121,21 @@ footer {
 			padding: 50px 15px 15px;
 		}
 	}
+	
+	.masthead-full {
+		.container {
+			height: 400px;
+		}
+		.track-handle {
+			h1 {
+				font-size: 72px;
+			}
+			span {
+				font-size: 21px;
+			}
+		}
+	}
+
 
 }
 
@@ -1115,6 +1198,11 @@ footer {
 			}
 		}
 	}
+	.masthead-full {
+		.container {
+			height: 500px;
+		}
+	}
 }
 
 /* - extra large:desktop */
@@ -1132,6 +1220,12 @@ footer {
 				font-size: 72px; 
 				letter-spacing: 21px;
 			}
+		}
+	}
+	
+	.masthead-full {
+		.container {
+			height: 600px;
 		}
 	}
 }

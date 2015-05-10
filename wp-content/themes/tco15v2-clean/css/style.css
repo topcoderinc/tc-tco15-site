@@ -675,6 +675,68 @@ footer .bottom-section .powered {
   color: #f6921e;
   text-decoration: none;
 }
+/* Finalists Page */
+.masthead-full {
+  background-position: 50% 50%;
+  background-size: cover !important;
+}
+.masthead-full .container {
+  height: 300px;
+  position: relative;
+}
+.masthead-full .track-handle {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 30px;
+  color: #fff;
+  left: 0;
+  padding: 5px 30px;
+  position: absolute;
+}
+.masthead-full .track-handle h1 {
+  font-size: 45px;
+  font-weight: 900;
+  line-height: normal;
+  margin: 0;
+}
+.masthead-full .track-handle span {
+  color: #29abe2;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.finalist-thumb {
+  display: block;
+  margin: 15px 0;
+  position: relative;
+}
+.finalist-thumb span {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 900;
+  left: 0;
+  padding: 5px 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.finalist-thumb:hover span {
+  background: rgba(0, 0, 0, 0.75);
+}
+.masthead-finalists {
+  padding: 30px 15px;
+}
+.masthead-finalists h1 {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: normal;
+  margin: 0;
+}
+.masthead-finalists span {
+  color: #29abe2;
+  font-size: 21px;
+  text-transform: uppercase;
+}
 /* Collapsable */
 .panel-group {
   margin-bottom: 10px;
@@ -973,6 +1035,15 @@ footer .bottom-section .powered {
   #event-pages .pages {
     padding: 50px 15px 15px;
   }
+  .masthead-full .container {
+    height: 400px;
+  }
+  .masthead-full .track-handle h1 {
+    font-size: 72px;
+  }
+  .masthead-full .track-handle span {
+    font-size: 21px;
+  }
 }
 /* - large:small laptop */
 @media (min-width: 992px) {
@@ -1012,6 +1083,9 @@ footer .bottom-section .powered {
     font-size: 27px;
     width: 450px;
   }
+  .masthead-full .container {
+    height: 500px;
+  }
 }
 /* - extra large:desktop */
 @media (min-width: 1200px) {
@@ -1024,6 +1098,9 @@ footer .bottom-section .powered {
   #event-summary .dates .month {
     font-size: 72px;
     letter-spacing: 21px;
+  }
+  .masthead-full .container {
+    height: 600px;
   }
 }
 /* Nav fix */
