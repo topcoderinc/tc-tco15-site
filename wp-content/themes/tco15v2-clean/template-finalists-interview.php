@@ -47,7 +47,7 @@ $bgPosition 	= get_field('cover_photo_position');
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="track-handle">
-							<span><?php echo $track; ?> Finalists</span>
+							<span><?php echo $track; ?> <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></span>
 							<h1><?php the_title(); ?></h1>
 						</div>
 					</div>
