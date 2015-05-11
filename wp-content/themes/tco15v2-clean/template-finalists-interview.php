@@ -66,7 +66,7 @@ $bgPosition 	= get_field('cover_photo_position');
 				<h2 class="alt-section-title">INTERVIEW</h2>
 				<?php foreach($q as $k=>$v) : ?>
 				<div class="item">
-					<h3>Question: <strong><?php echo $v['label']; ?></strong></h3>
+					<h3><strong><?php echo $v['label']; ?></strong></h3>
 					<?php echo apply_filters('the_content', $v['value']); ?>
 				</div>
 				<hr />
