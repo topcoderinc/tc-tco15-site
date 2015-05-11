@@ -834,6 +834,10 @@ footer .bottom-section .powered {
 #latest-news-popup .wrapper .news-close:hover {
   color: #fff;
 }
+.pager li {
+  background: none !important;
+  padding-left: 0 !important;
+}
 /* Media Queries -------------------------------------------------------------------------------------------------------------------------------- */
 /* - medium:tablet */
 @media (min-width: 768px) {
