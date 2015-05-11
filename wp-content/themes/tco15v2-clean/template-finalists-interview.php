@@ -73,13 +73,15 @@ $bgPosition 	= get_field('cover_photo_position');
 				<?php endforeach; ?>
 			</div>
 			
+			
 			<?php
-				// get next interview
+				// get next and prev interview
+				$currentID = $post->ID;
 				$args = array (
 					'post_parent'            => $post->post_parent,
 					'post_type'              => 'page',
 					'post_status'            => 'publish',
-					'posts_per_page'         => '1',
+					'posts_per_page'         => '-1',
 					'order'                  => 'ASC',
 					'orderby'                => 'menu_order',
 					'meta_query'             => array(
@@ -91,15 +93,32 @@ $bgPosition 	= get_field('cover_photo_position');
 					),
 				);
 				
-				$query = new WP_Query( $args );
 				
+				$strNext = '';
+				$strPrev = '';
+					
+				$query = new WP_Query( $args );
 				if ( $query->have_posts() ) {
+					$ctr = 0;
 					while ( $query->have_posts() ) {
 						$query->the_post();
-						$strNext = get_the_permalink();
+						$link[$ctr] = get_the_permalink();
+						
+						if ($currentID==$post->ID) {
+							$current_ctr = $ctr;
+						}
+						
+						$ctr++;
 					}
-				} else {
-					$strNext = '';
+					
+					if ($current_ctr>0) {
+						$strPrev = $link[$current_ctr-1];
+					}
+					
+					if ($current_ctr< (count($link)-1) ) {
+						$strNext = $link[$current_ctr+1];
+					}
+					
 				}
 				
 				// Restore original Post Data
@@ -109,7 +128,7 @@ $bgPosition 	= get_field('cover_photo_position');
 			?>
 			<nav>
 				<ul class="pager">
-					<li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></a></li>
+					<li class="previous<?php if ($strPrev=='') : ?> disabled<?php endif; ?>"><a href="<?php echo $strPrev!='' ? $strPrev : '#'; ?>"><span aria-hidden="true">&larr;</span> Previous <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></a></li>
 					<li class="home"><a href="<?php echo get_permalink($post->post_parent); ?>">All <?php echo $track; ?> <?php echo $track=='Copilot' ? 'Winners' : 'Finalists'; ?></a></li>
 					<li class="next<?php if ($strNext=='') : ?> disabled<?php endif; ?>"><a href="<?php echo $strNext!='' ? $strNext : '#'; ?>">Next <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?> <span aria-hidden="true">&rarr;</span></a></li>
 				</ul>
