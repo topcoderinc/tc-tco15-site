@@ -73,6 +73,48 @@ $bgPosition 	= get_field('cover_photo_position');
 				<?php endforeach; ?>
 			</div>
 			
+			<?php
+				// get next interview
+				$args = array (
+					'post_parent'            => $post->post_parent,
+					'post_type'              => 'page',
+					'post_status'            => 'publish',
+					'posts_per_page'         => '1',
+					'order'                  => 'ASC',
+					'orderby'                => 'menu_order',
+					'meta_query'             => array(
+						array(
+							'key'       => 'topcoder_meaning',
+							'value'     => '',
+							'compare'   => '!=',
+						),
+					),
+				);
+				
+				$query = new WP_Query( $args );
+				
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$strNext = get_the_permalink();
+					}
+				} else {
+					$strNext = '';
+				}
+				
+				// Restore original Post Data
+				wp_reset_postdata();
+				
+				
+			?>
+			<nav>
+				<ul class="pager">
+					<li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></a></li>
+					<li class="home"><a href="<?php echo get_permalink($post->post_parent); ?>">All <?php echo $track; ?> <?php echo $track=='Copilot' ? 'Winners' : 'Finalists'; ?></a></li>
+					<li class="next<?php if ($strNext=='') : ?> disabled<?php endif; ?>"><a href="<?php echo $strNext!='' ? $strNext : '#'; ?>">Next <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?> <span aria-hidden="true">&rarr;</span></a></li>
+				</ul>
+			</nav>
+			
 		</div>
             
 	</div><!-- .container -->
