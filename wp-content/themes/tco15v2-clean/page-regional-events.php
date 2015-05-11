@@ -8,7 +8,7 @@
 		'post_type'		=> 'page',
 		'post_status' 	=> 'publish',
 		'sort_order'    => 'ASC',
-		'sort_column'   => 'menu_order',
+		'sort_column'   => 'id',
 	);
 	
 	$pages = get_pages($args);
