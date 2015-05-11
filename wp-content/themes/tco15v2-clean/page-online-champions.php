@@ -39,9 +39,11 @@
 							while ( $query->have_posts() ) {
 								$query->the_post();
 								$ctr++;
+								$topcoder_meaning 	= get_field('topcoder_meaning');
+								$strPermalink 		= $topcoder_meaning!='' ? get_the_permalink() : 'javascript:;';
 					?>
 						<div class="col-sm-4">
-							<a href="<?php the_permalink(); ?>" class="finalist-thumb">
+							<a href="<?php echo $strPermalink; ?>" class="finalist-thumb">
 							<?php if ( has_post_thumbnail() ) {
 								the_post_thumbnail('full', array('class' => 'img-responsive img-full'));
 							} else {
