@@ -2,6 +2,83 @@
 /*
  * tco_leaderboard
  */
+// New way to get leaderboard
+function getWPLeaderboard($track, $period) {
+	$return = '';
+	$args = array (
+		'post_type'              => 'challenge',
+		'post_status'            => 'publish',
+		'posts_per_page'         => -1,
+		'meta_query'             => array(
+			array(
+				'key'       => 'track',
+				'value'     => $track,
+			),
+			array(
+				'key'       => 'period',
+				'value'     => $period,
+			),
+			array(
+				'key'       => 'challenge_url',
+				'compare' 	=> '!=',
+				'value'     => '',
+			),
+		),
+	);
+	$query = new WP_Query( $args );	
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$winners = get_field('winners');
+			for( $i=0; $i<$winners; $i++ ) {
+				$handle	 		 = get_field('winners_'.$i.'_handle');
+				$rank[$handle] 	+= get_field('winners_'.$i.'_placement_points');
+				$counter[$handle]++;
+			}
+		}
+	}
+	wp_reset_postdata();
+	
+	if ( isset($rank) ) {
+		// get user details permalink
+		$strUserDetailsURL = get_permalink( get_page_by_title( 'User Details' ) );
+		
+		// sort highest to lowest
+		arsort($rank);
+		
+		$return = '
+			<table class="dev-design-leaderboard leaderboard-table table table-striped table-hover table-responsive">
+				<thead>
+					<tr>
+						<th>Handle</th>
+						<th class="text-center">Completed Project</th>
+						<th class="text-center">Total Points</th>
+					</tr>
+				</thead>
+				<tbody>
+		';
+		
+		foreach( $rank as $k=>$v ) {
+			$return .= '
+				<tr>
+					<td><a href="'.$strUserDetailsURL.'?period='.$period.'&track='.$track.'&handle='.$k.'">'.$k.'</a></td>
+					<td class="text-center">'.$counter[$k].'</td>
+					<td class="text-center"><strong>'.number_format($v,2).'</strong></td>
+				</tr>';
+		}
+		
+		$return .= '
+				</tbody>
+			</table>';
+	}
+	
+	return $return;
+	
+}
+
+
+
+//----------------------------------------
 
 // Get table for Development
 function get_table($period, $dsid, $c) {
@@ -11,7 +88,7 @@ function get_table($period, $dsid, $c) {
 	$module 	= $site_options['module'];
 	$url 		= get_bloginfo ( 'stylesheet_directory' ) . "/includes/base.php?module=" . $module . "&c=" . $c . "&dsid=" . $dsid . "&cd=" . $period;
 	$response 	= wp_remote_get ( $url, array('timeout'=>60) );
-
+	
 	// If error
 	if ( is_wp_error ( $response ) ) {
 		$return['html'] = '<hr /><div class="alert alert-danger">'. $response->get_error_message() .'</div>';
@@ -352,19 +429,27 @@ function tco_leaderboard_function($atts, $content = null) {
 			
 		case 'development':
 			
+			/*
 			$dsid 		= $site_options['dev_dsid'];
-			$c 			= $site_options['dev_c'];	
-			
+			$c 			= $site_options['dev_c'];
 			$p1_data	= get_table ( $site_options['dev_p1'], $dsid, $c );
 			$p2_data	= get_table ( $site_options['dev_p2'], $dsid, $c );
 			$p3_data	= get_table ( $site_options['dev_p3'], $dsid, $c );
 			$p4_data	= get_table ( $site_options['dev_p4'], $dsid, $c );
-
+			
 			$tab_content = '
 				<div class="tab-pane fade in active" id="period1">' . $p1_data['html'] . '</div>
 				<div class="tab-pane fade" 			 id="period2">' . $p2_data['html'] . '</div>
 				<div class="tab-pane fade" 			 id="period3">' . $p3_data['html'] . '</div>
-				<div class="tab-pane fade" 			 id="period4">' . $p4_data['html'] . '</div>';				
+				<div class="tab-pane fade" 			 id="period4">' . $p4_data['html'] . '</div>';
+			*/
+			
+
+			$tab_content = '
+				<div class="tab-pane fade in active" id="period1">' . getWPLeaderboard('development', 1) . '</div>
+				<div class="tab-pane fade" 			 id="period2">' . getWPLeaderboard('development', 2) . '</div>
+				<div class="tab-pane fade" 			 id="period3">' . getWPLeaderboard('development', 3) . '</div>
+				<div class="tab-pane fade" 			 id="period4">' . getWPLeaderboard('development', 4) . '</div>';				
 			break;
 		
 		case 'studio':
@@ -404,7 +489,6 @@ function tco_leaderboard_function($atts, $content = null) {
 	
 	if ( $track!='algorithm' && $track!='marathon' ) {
 		$html = '
-			<h3>Leaderboard</h3>
 			<ul class="nav nav-tabs nav-justified">
 				<li class="active"><a href="#period1">Period 1</a></li>
 				<li><a href="#period2">Period 2</a></li>

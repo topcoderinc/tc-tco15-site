@@ -28,7 +28,7 @@
 	$ajax = new XMLHttpRequest();
 	$ajax->open("GET", "http://community.topcoder.com/tc");
 	$ajax->send($data);
-
+		
 	if($ajax->status == 200){
 		$xml = simpledom_load_string($ajax->responseText);
 			
@@ -63,4 +63,6 @@
 			echo json_encode($newArray);
 		}
 	}else echo "ERROR: $ajax->status";
+	
+	
 ?>

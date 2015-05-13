@@ -125,7 +125,8 @@ function custom_post_register() {
 			'rewrite' => true,
 			'capability_type' => 'post',
 			'hierarchical' => false,
-			'menu_position' => 5,
+			'menu_position' => 25,
+			'menu_icon'           => 'dashicons-calendar-alt',
 			'exclude_from_search' => false,
 			'show_in_nav_menus' => true,
 			'taxonomies' => array (
@@ -194,7 +195,8 @@ function custom_post_register() {
 			'rewrite' => true,
 			'capability_type' => 'post',
 			'hierarchical' => false,
-			'menu_position' => 5,
+			'menu_position' => 25,
+			'menu_icon'           => 'dashicons-slides',
 			'exclude_from_search' => false,
 			'show_in_nav_menus' => true,
 			'taxonomies' => array (),
@@ -208,133 +210,58 @@ function custom_post_register() {
 	
 	register_post_type ( 'carousel', $args );
 	
-/* Sponsors Post Type */
-	$strPostName = 'Sponsor';
-	
-	$labels = array (
-			'name' => _x ( $strPostName . 's', 'post type general name' ),
-			'singular_name' => _x ( $strPostName, 'post type singular name' ),
-			'add_new' => _x ( 'Add New', $strPostName . ' Post' ),
-			'add_new_item' => __ ( 'Add New ' . $strPostName . ' Post' ),
-			'edit_item' => __ ( 'Edit ' . $strPostName . ' Post' ),
-			'new_item' => __ ( 'New ' . $strPostName . ' Post' ),
-			'view_item' => __ ( 'View ' . $strPostName . ' Post' ),
-			'search_items' => __ ( 'Search ' . $strPostName ),
-			'not_found' => __ ( 'Nothing found' ),
-			'not_found_in_trash' => __ ( 'Nothing found in Trash' ),
-			'parent_item_colon' => ''
-	);
-	
-	$args = array (
-			'labels' => $labels,
-			'public' => true,
-			'publicly_queryable' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => true,
-			'capability_type' => 'page',
-			'hierarchical' => true,
-			'menu_position' => 5,
-			'exclude_from_search' => false,
-			'show_in_nav_menus' => true,
-			'taxonomies' => array (
-					'category_spon'
-			),
-			'supports' => array (
-					'title',
-					'editor',
-					'page-attributes',
-					'thumbnail'
-			)
-	);
-	
-	register_post_type ( 'sponsor', $args );
 	
 	flush_rewrite_rules ( false );
 		
 }
 
-
-// Member Post Type
-function member_post_type() {
+// Register Custom Post Type
+function travel_form_post_type() {
 
 	$labels = array(
-		'name'                => 'Members',
-		'singular_name'       => 'Member',
-		'menu_name'           => 'Members',
-		'parent_item_colon'   => 'Member Parent:',
-		'all_items'           => 'All Members',
-		'view_item'           => 'View Member',
-		'add_new_item'        => 'Add New Member',
-		'add_new'             => 'Add New Member',
-		'edit_item'           => 'Edit Member',
-		'update_item'         => 'Update Member',
-		'search_items'        => 'Search Member',
-		'not_found'           => 'Not found',
-		'not_found_in_trash'  => 'Not found in Trash',
+		'name'                => _x( 'Travel Forms', 'Post Type General Name', 'tco' ),
+		'singular_name'       => _x( 'Travel Form', 'Post Type Singular Name', 'tco' ),
+		'menu_name'           => __( 'Travel Forms', 'tco' ),
+		'name_admin_bar'      => __( 'Travel Forms', 'tco' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'tco' ),
+		'all_items'           => __( 'All Items', 'tco' ),
+		'add_new_item'        => __( 'Add New Item', 'tco' ),
+		'add_new'             => __( 'Add New', 'tco' ),
+		'new_item'            => __( 'New Item', 'tco' ),
+		'edit_item'           => __( 'Edit Item', 'tco' ),
+		'update_item'         => __( 'Update Item', 'tco' ),
+		'view_item'           => __( 'View Item', 'tco' ),
+		'search_items'        => __( 'Search Item', 'tco' ),
+		'not_found'           => __( 'Not found', 'tco' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tco' ),
 	);
 	$args = array(
-		'label'               => 'member',
-		'description'         => 'Member\'s information and photos',
+		'label'               => __( 'travel_form', 'tco' ),
+		'description'         => __( 'Member\'s Travel Form', 'tco' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title' ),
-		'hierarchical'        => true,
+		'supports'            => array( 'title', ),
+		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
+		'menu_position'       => 25,
+		'menu_icon'           => 'dashicons-id-alt',
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'show_in_nav_menus'   => true,
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
 	);
-	register_post_type( 'member', $args );
+	register_post_type( 'travel_form', $args );
+
 }
-add_action( 'init', 'member_post_type', 0 );
+
+// Hook into the 'init' action
+add_action( 'init', 'travel_form_post_type', 0 );
 
 
-// Staff Post Type
-function staff_post_type() {
-
-	$labels = array(
-		'name'                => 'Staff',
-		'singular_name'       => 'Staff',
-		'menu_name'           => 'Staff',
-		'parent_item_colon'   => 'Staff Parent:',
-		'all_items'           => 'All Staff',
-		'view_item'           => 'View Staff',
-		'add_new_item'        => 'Add New Staff',
-		'add_new'             => 'Add New Staff',
-		'edit_item'           => 'Edit Staff',
-		'update_item'         => 'Update Staff',
-		'search_items'        => 'Search Staff',
-		'not_found'           => 'Not found',
-		'not_found_in_trash'  => 'Not found in Trash',
-	);
-	$args = array(
-		'label'               => 'Staff',
-		'description'         => 'Staff information and photos',
-		'labels'              => $labels,
-		'supports'            => array( 'title' ),
-		'hierarchical'        => true,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
-		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
-	);
-	register_post_type( 'staff', $args );
-}
-add_action( 'init', 'staff_post_type', 0 );
 
 
 // Tweet Post Type
@@ -366,7 +293,8 @@ function tweet_post_type() {
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 25,
+		'menu_icon'           => 'dashicons-twitter',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
@@ -376,3 +304,51 @@ function tweet_post_type() {
 	register_post_type( 'tweet', $args );
 }
 add_action( 'init', 'tweet_post_type', 0 );
+
+
+
+// Challenges Custom Post Type for leaderboard
+function challenges_post_type() {
+
+	$labels = array(
+		'name'                => _x( 'Challenges', 'Post Type General Name', 'tco' ),
+		'singular_name'       => _x( 'Challenge', 'Post Type Singular Name', 'tco' ),
+		'menu_name'           => __( 'Challenges', 'tco' ),
+		'name_admin_bar'      => __( 'Challenges', 'tco' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'tco' ),
+		'all_items'           => __( 'All Items', 'tco' ),
+		'add_new_item'        => __( 'Add New Item', 'tco' ),
+		'add_new'             => __( 'Add New', 'tco' ),
+		'new_item'            => __( 'New Item', 'tco' ),
+		'edit_item'           => __( 'Edit Item', 'tco' ),
+		'update_item'         => __( 'Update Item', 'tco' ),
+		'view_item'           => __( 'View Item', 'tco' ),
+		'search_items'        => __( 'Search Item', 'tco' ),
+		'not_found'           => __( 'Not found', 'tco' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tco' ),
+	);
+	$args = array(
+		'label'               => __( 'challenge', 'tco' ),
+		'description'         => __( 'Challenges for leaderboard computation', 'tco' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 25,
+		'menu_icon'           => 'dashicons-awards',
+		'show_in_admin_bar'   => false,
+		'show_in_nav_menus'   => false,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'challenge', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'challenges_post_type', 0 );
