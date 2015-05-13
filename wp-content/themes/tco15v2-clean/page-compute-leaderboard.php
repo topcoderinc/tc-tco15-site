@@ -171,7 +171,7 @@
 					// count number of passing submissions
 					$numberOfSubmissions = 0;
 					foreach( $challenge_obj->submissions as $k=>$v ) {
-						if ( $v->submissionStatus!='Failed Review' ) {
+						if ( $v->submissionStatus=='Active' || $v->submissionStatus=='Completed Without Win' ) {
 							$numberOfSubmissions++;	
 						}
 						
