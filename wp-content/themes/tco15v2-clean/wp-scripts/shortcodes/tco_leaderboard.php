@@ -32,8 +32,10 @@ function getWPLeaderboard($track, $period) {
 			$winners = get_field('winners');
 			for( $i=0; $i<$winners; $i++ ) {
 				$handle	 		 = get_field('winners_'.$i.'_handle');
-				$rank[$handle] 	+= get_field('winners_'.$i.'_placement_points');
-				$counter[$handle]++;
+				if ($handle!='') {
+					$rank[$handle] 	+= get_field('winners_'.$i.'_placement_points');
+					$counter[$handle]++;
+				}
 			}
 		}
 	}
