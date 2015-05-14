@@ -24,7 +24,14 @@
 					} 
 				?>
 					<h3>
-						<?php echo $handle; ?> <?php echo ucwords($track); ?> <?php echo $period; ?> Completed Challenges
+						<?php echo $handle; ?> <?php 
+						if ($track=='ia') {
+							echo 'Information Architecture';
+						} else if ($track=='ui-design') {
+							echo 'UI Design';
+						} else {
+							echo ucwords($track); 
+						} ?> <?php echo $period; ?> Completed Challenges
 					</h3>
 					
 					<?php
