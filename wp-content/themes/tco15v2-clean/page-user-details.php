@@ -26,10 +26,13 @@
 					<h3>
 						<?php echo $handle; ?> <?php 
 						if ($track=='ia') {
+							$type = 'design';
 							echo 'Information Architecture';
 						} else if ($track=='ui-design') {
+							$type = 'design';
 							echo 'UI Design';
 						} else {
+							$type = 'develop';
 							echo ucwords($track); 
 						} ?> <?php echo $period; ?> Completed Challenges
 					</h3>
@@ -50,7 +53,6 @@
 							)
 						),
 					);
-					
 					
 					$query = new WP_Query( $args );	
 					if ( $query->have_posts() ) : 
@@ -88,7 +90,7 @@
 							if ( $show ) :
 				?>
 						<tr>
-							<td><?php the_title(); ?></td>
+							<td><a href="https://www.topcoder.com/challenge-details/<?php echo get_field('challenge_id'); ?>/?type=<?php echo $type; ?>" target="_blank"><?php the_title(); ?></a></td>
 							<td class="text-center"><?php echo $submit_date; ?></td>
 							<td class="text-center"><?php echo $score; ?></td>
 							<td class="text-center"><?php echo $placement; ?></td>
