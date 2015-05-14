@@ -453,6 +453,7 @@ function tco_leaderboard_function($atts, $content = null) {
 			break;
 		
 		case 'studio':
+			/*
 			$dsid 		= $site_options['studio_dsid'];
 			$c 			= $site_options['studio_c'];	
 
@@ -460,10 +461,18 @@ function tco_leaderboard_function($atts, $content = null) {
 				<div class="tab-pane fade in active" id="period1">' . get_studio_table($site_options['studio_p1'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period2">' . get_studio_table($site_options['studio_p2'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period3">' . get_studio_table($site_options['studio_p3'], $dsid, $c) . '</div>
-				<div class="tab-pane fade" 			 id="period4">' . get_studio_table($site_options['studio_p4'], $dsid, $c) . '</div>';		
+				<div class="tab-pane fade" 			 id="period4">' . get_studio_table($site_options['studio_p4'], $dsid, $c) . '</div>';	
+				*/
+				
+			$tab_content = '
+				<div class="tab-pane fade in active" id="period1">' . getWPLeaderboard('ui-design', 1) . '</div>
+				<div class="tab-pane fade" 			 id="period2">' . getWPLeaderboard('ui-design', 2) . '</div>
+				<div class="tab-pane fade" 			 id="period3">' . getWPLeaderboard('ui-design', 3) . '</div>
+				<div class="tab-pane fade" 			 id="period4">' . getWPLeaderboard('ui-design', 4) . '</div>';	
 			break;
 			
 		case 'ia': // information architecture
+			/*
 			$dsid 		= $site_options['ia_dsid'];
 			$c 			= $site_options['ia_c'];	
 
@@ -472,10 +481,18 @@ function tco_leaderboard_function($atts, $content = null) {
 				<div class="tab-pane fade" 			 id="period2">' . get_studio_table($site_options['ia_p2'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period3">' . get_studio_table($site_options['ia_p3'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period4">' . get_studio_table($site_options['ia_p4'], $dsid, $c) . '</div>';		
-		
+			*/
+			
+			$tab_content = '
+				<div class="tab-pane fade in active" id="period1">' . getWPLeaderboard('ia', 1) . '</div>
+				<div class="tab-pane fade" 			 id="period2">' . getWPLeaderboard('ia', 2) . '</div>
+				<div class="tab-pane fade" 			 id="period3">' . getWPLeaderboard('ia', 3) . '</div>
+				<div class="tab-pane fade" 			 id="period4">' . getWPLeaderboard('ia', 4) . '</div>';
+			
 			break;
 						
 		default: // prototype
+			/*
 			$dsid 		= $site_options['prototype_dsid'];
 			$c 			= $site_options['prototype_c'];	
 
@@ -483,7 +500,13 @@ function tco_leaderboard_function($atts, $content = null) {
 				<div class="tab-pane fade in active" id="period1">' . get_studio_table($site_options['prototype_p1'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period2">' . get_studio_table($site_options['prototype_p2'], $dsid, $c) . '</div>
 				<div class="tab-pane fade" 			 id="period3">' . get_studio_table($site_options['prototype_p3'], $dsid, $c) . '</div>
-				<div class="tab-pane fade" 			 id="period4">' . get_studio_table($site_options['prototype_p4'], $dsid, $c) . '</div>';			
+				<div class="tab-pane fade" 			 id="period4">' . get_studio_table($site_options['prototype_p4'], $dsid, $c) . '</div>';	
+			*/
+			$tab_content = '
+				<div class="tab-pane fade in active" id="period1">' . getWPLeaderboard('prototype', 1) . '</div>
+				<div class="tab-pane fade" 			 id="period2">' . getWPLeaderboard('prototype', 2) . '</div>
+				<div class="tab-pane fade" 			 id="period3">' . getWPLeaderboard('prototype', 3) . '</div>
+				<div class="tab-pane fade" 			 id="period4">' . getWPLeaderboard('prototype', 4) . '</div>';			
 	}
 	
 	
