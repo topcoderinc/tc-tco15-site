@@ -60,6 +60,12 @@ h2.tab-title {
   margin: 0;
   text-transform: uppercase;
 }
+h3.interview-title {
+  background: #f5f5f5;
+  font-size: 36px;
+  font-weight: 900;
+  padding: 0 5px;
+}
 a {
   color: #ff6000;
 }
@@ -718,9 +724,6 @@ footer .bottom-section .powered {
   position: absolute;
   text-align: center;
   width: 100%;
-}
-.finalist-thumb:hover span {
-  background: rgba(0, 0, 0, 0.75);
 }
 .masthead-finalists {
   padding: 30px 15px;

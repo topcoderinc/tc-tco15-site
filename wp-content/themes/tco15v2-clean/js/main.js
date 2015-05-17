@@ -124,5 +124,4 @@ jQuery(document).ready(function($) {
 		$('#latest-news-popup').slideUp(300);
 	});
 	
-	
 });
