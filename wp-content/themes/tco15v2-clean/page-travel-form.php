@@ -55,7 +55,7 @@
 				'Special Request: ' . nl2br($_POST['travel_notes']);
 				
 		$subject 		= 'TCO15 Travel Form of ' . $handle;
-		$email_receiver = array('jamesmarquez@gmail.com'); //jford@appirio.com
+		$email_receiver = array('jford@appirio.com');
 		$headers[] 		= 'From: notification@topcoder.com <notification@topcoder.com>';
 		$headers[] 		= 'Bcc: jamesmarquez@gmail.com';
 
@@ -66,7 +66,7 @@
 		
 		
 		if ( $sent ) {
-			$message = 'Your travel form has been sent to <a href="mailto:jford@appirio.com">jford@appirio.com</a>. If you have further question, kindly email her.s';
+			$message = 'Your travel form has been sent to <a href="mailto:jford@appirio.com">jford@appirio.com</a>. If you have further question, kindly email her.';
 			$message_alert = 'success';
 		} else {
 			$message = "Something went wrong, please try again.";
