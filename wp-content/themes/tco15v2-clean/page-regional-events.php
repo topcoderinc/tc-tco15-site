@@ -69,7 +69,7 @@
 					<div class="detail-body">
 						<div class="row">
 							<div class="col-xs-4 when">When :</div>
-							<div class="col-xs-8 when-ans"><?php echo $date!='' ? date('d F, Y', $date) : 'TBD'; ?></div>
+							<div class="col-xs-8 when-ans"><?php echo $date!='' ? date('F d, Y', $date) : 'TBD'; ?></div>
 							<div class="clearfix visible-xs"></div>
 							<div class="col-xs-4 where">Where :</div>
 							<div class="col-xs-8 where-ans"><?php echo get_post_meta( $pages[$i]->ID, '_cmb_reg-event-location', true ); ?></div>
