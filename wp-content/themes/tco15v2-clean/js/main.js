@@ -124,4 +124,15 @@ jQuery(document).ready(function($) {
 		$('#latest-news-popup').slideUp(300);
 	});
 	
+	
+	// Regional Events direct link
+	if ( $('#regional-events-page').length>0 ) {
+		var tab = window.location.hash;
+		tab = tab.replace('#', '');
+		tab = tab.replace(/\//g, '');
+		
+		if ( tab!='' ) {
+			$("a[data-tab='"+tab+"']").trigger('click');
+		}
+	}
 });

@@ -22,12 +22,12 @@
 		<div id="event-summary">
 			<div class="dates text-center">
 				<ul class="controls">
-					<li><a href="javascript:;" class="tab active">1</a></li>
-					<li><a href="javascript:;" class="tab">2</a></li>
-					<li><a href="javascript:;" class="tab">3</a></li>
-					<li><a href="javascript:;" class="tab">4</a></li>
-					<li><a href="javascript:;" class="tab">5</a></li>
-					<li><a href="javascript:;" class="tab">6</a></li>
+					<li><a href="javascript:;" class="tab active" data-tab="<?php echo isset($pages[0]) ? $pages[0]->post_name : ''; ?>">1</a></li>
+					<li><a href="javascript:;" class="tab" data-tab="<?php echo isset($pages[1]) ? $pages[1]->post_name : ''; ?>">2</a></li>
+					<li><a href="javascript:;" class="tab" data-tab="<?php echo isset($pages[2]) ? $pages[2]->post_name : ''; ?>">3</a></li>
+					<li><a href="javascript:;" class="tab" data-tab="<?php echo isset($pages[3]) ? $pages[3]->post_name : ''; ?>">4</a></li>
+					<li><a href="javascript:;" class="tab" data-tab="<?php echo isset($pages[4]) ? $pages[4]->post_name : ''; ?>">5</a></li>
+					<li><a href="javascript:;" class="tab" data-tab="<?php echo isset($pages[5]) ? $pages[5]->post_name : ''; ?>">6</a></li>
 				</ul>
 				
 				<?php for ($i=0; $i<6; $i++) : ?>
