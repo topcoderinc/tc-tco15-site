@@ -725,6 +725,9 @@ footer .bottom-section .powered {
   text-align: center;
   width: 100%;
 }
+.finalist-thumb:hover span {
+  background: rgba(0, 0, 0, 0.75);
+}
 .masthead-finalists {
   padding: 30px 15px;
 }
