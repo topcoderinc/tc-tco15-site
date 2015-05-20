@@ -66,6 +66,29 @@ h3.interview-title {
   font-weight: 900;
   padding: 0 5px;
 }
+h3.alt-section-title {
+  color: #8ac53e;
+  font-size: 30px;
+  font-weight: 300 !important;
+  text-align: center;
+  text-transform: uppercase;
+}
+h3.post-title {
+  border-bottom: 1px solid #eee;
+  color: #ff6000;
+  font-size: 30px;
+  font-weight: 300 !important;
+  padding: 0 3px;
+  text-transform: uppercase;
+}
+h3.alt-post-title {
+  border-bottom: 1px solid #eee;
+  color: #8ac53e;
+  font-size: 30px;
+  font-weight: 300 !important;
+  padding: 0 3px;
+  text-transform: uppercase;
+}
 a {
   color: #ff6000;
 }

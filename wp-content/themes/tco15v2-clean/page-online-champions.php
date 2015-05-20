@@ -12,13 +12,13 @@
 				the_post(); 
 				$parent_title = get_the_title($post->post_parent);
 		?>
-			<h2 class="post-title">Congratulations to the <?php echo ucwords($parent_title); ?> Online Champions!</h2>
+			<h3 class="post-title">Congratulations to the <?php echo ucwords($parent_title); ?> Online Champions!</h3>
 			
 			<?php the_content(); ?>
 			
-			<hr />
 			
-			<h2 class="alt-section-title">Meet some of our Online Champions!</h2>
+			
+			<h3 class="alt-post-title">Meet some of our Online Champions!</h3>
 			
 			
 		<?php endif; ?>
