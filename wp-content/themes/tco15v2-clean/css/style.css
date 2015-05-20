@@ -728,6 +728,22 @@ footer .bottom-section .powered {
 .finalist-thumb:hover span {
   background: rgba(0, 0, 0, 0.75);
 }
+.winner-list h3 {
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  margin: 15px 0 0;
+  padding: 10px 0;
+}
+.winner-list ul {
+  list-style: none;
+  padding: 0 !important;
+}
+.winner-list ul li {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #fff;
+  margin-top: 1px;
+  padding: 10px 15px;
+}
 .masthead-finalists {
   padding: 30px 15px;
 }
