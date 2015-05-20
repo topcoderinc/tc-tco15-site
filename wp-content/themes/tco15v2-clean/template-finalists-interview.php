@@ -43,23 +43,24 @@ $bgPosition 	= get_field('cover_photo_position');
 		<div class="article">
 			
 			<?php if ( $masthead!='masthead-full'  ) : ?>
+			<?php if ($masthead=='masthead-small') : ?>
+			<div class="col-xs-12 col-sm-6 col-md-4 pull-right">
+				&nbsp;
+				<img src="<?php echo $cover_photo['url']; ?>" class="img-responsive img-full img-thumbnail" />
+			</div>
+			<?php endif; ?>
 			<div class="masthead-finalists">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="track-handle">
-							<span><?php echo $track; ?> <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></span>
-							<h1><?php the_title(); ?></h1>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<?php if ($masthead=='masthead-small') : ?>
-						<img src="<?php echo $cover_photo['url']; ?>" class="img-responsive img-full" />
-						<?php endif; ?>
-					</div>
+				
+				<div class="track-handle">
+					<span><?php echo $track; ?> <?php echo $track=='Copilot' ? 'Winner' : 'Finalist'; ?></span>
+					<h1><?php the_title(); ?></h1>
 				</div>
+					
 			</div>
 			<hr />
 			<?php endif; ?>
+			
+			
 			
 		
 			<div class="interview">

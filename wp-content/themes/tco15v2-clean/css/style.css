@@ -573,6 +573,9 @@ footer .bottom-section .powered {
 .img-full {
   width: 100%;
 }
+.img-thumbnail {
+  border-radius: 0;
+}
 .alignleft {
   float: left;
   margin-right: 20px;
