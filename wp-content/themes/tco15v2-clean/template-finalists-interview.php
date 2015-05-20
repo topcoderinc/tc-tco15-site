@@ -44,7 +44,7 @@ $bgPosition 	= get_field('cover_photo_position');
 			
 			<?php if ( $masthead!='masthead-full'  ) : ?>
 			<?php if ($masthead=='masthead-small') : ?>
-			<div class="col-xs-12 col-sm-6 col-md-4 pull-right">
+			<div class="col-xs-12 col-sm-6 pull-right">
 				&nbsp;
 				<img src="<?php echo $cover_photo['url']; ?>" class="img-responsive img-full img-thumbnail" />
 			</div>
