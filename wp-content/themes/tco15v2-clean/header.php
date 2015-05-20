@@ -55,7 +55,7 @@
 					</div>
 				</div>
 				
-				
+				<?php if ( ! is_front_page() && ! is_page('regional-events') ) : ?>
 				<div class="collapse navbar-collapse" id="tournament-nav">
 					<div class="container">
 					<?php
@@ -68,6 +68,7 @@
 					?>
 					</div>
 				</div>
+				<?php endif; ?>
 				
 				<div class="collapse navbar-collapse" id="mobile-nav">
 					<?php

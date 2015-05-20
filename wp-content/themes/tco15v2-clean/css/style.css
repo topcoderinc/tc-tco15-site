@@ -19,9 +19,6 @@ body {
 body.admin-bar {
   margin-top: 32px;
 }
-body.page-template-default #tournament-nav {
-  display: none !important;
-}
 h2,
 h3,
 h4,
