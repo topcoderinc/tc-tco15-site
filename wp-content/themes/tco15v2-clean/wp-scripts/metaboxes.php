@@ -79,6 +79,11 @@ function additional_page_attr_metaboxes($meta_boxes) {
 						'id' 	=> $prefix . 'reg-event-external',
 						'type' 	=> 'text'
 					),
+					array (
+						'name' 	=> 'Completed?',
+						'id' 	=> $prefix . 'completed',
+						'type' 	=> 'checkbox'
+					)
 			) 
 	);
 

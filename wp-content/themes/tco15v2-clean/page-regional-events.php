@@ -35,7 +35,6 @@
 					<?php if ( isset($pages[$i]) ) : 
 						$raw_date 	= get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true );
 						$date 		= $raw_date!='' ? strtotime( $raw_date ) : '';
-						
 						if($date!='') :
 					?>
 						<span class="day"><?php echo date('d', $date); ?></span>
@@ -64,6 +63,7 @@
 					<?php  if ( isset($pages[$i]) ) : 
 						$raw_date 	= get_post_meta( $pages[$i]->ID, '_cmb_reg-event-date', true );
 						$date 		= $raw_date!='' ? strtotime( $raw_date ) : '';
+						$completed 	= get_post_meta( $pages[$i]->ID, '_cmb_completed', true );
 					?>
 					<h3><?php echo $pages[$i]->post_title; ?></h3>
 					<div class="detail-body">
@@ -75,10 +75,14 @@
 							<div class="col-xs-8 where-ans"><?php echo get_post_meta( $pages[$i]->ID, '_cmb_reg-event-location', true ); ?></div>
 						</div>
 					</div>
+						
 					<?php else : ?>
 					<h3>Events coming soon...</h3>
 					<?php endif; ?>
 				</div>
+				
+				<?php if ( $completed=='on' ) : ?><div class="completed"></div><?php endif; ?>
+					
 				<?php endfor; ?>
 			</div>
 		</div><!-- /#event-summary -->
