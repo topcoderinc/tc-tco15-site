@@ -81,7 +81,7 @@
 					<?php endif; ?>
 				</div>
 				
-				<?php if ( $completed=='on' ) : ?><div class="completed"></div><?php endif; ?>
+				<?php if ( $completed=='on' ) : ?><div id="completed-<?php echo $i+1; ?>" class="completed"></div><?php endif; ?>
 					
 				<?php endfor; ?>
 			</div>

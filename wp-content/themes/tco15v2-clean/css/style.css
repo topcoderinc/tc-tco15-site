@@ -385,6 +385,7 @@ main .article ul.nav-tabs.nav-justified li.active a {
 #event-summary .info .completed {
   background: url(../i/completed.png) 50% 50% no-repeat;
   background-size: contain;
+  display: none;
   height: 100%;
   position: absolute;
   right: 0;
