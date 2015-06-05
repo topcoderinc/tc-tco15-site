@@ -60,6 +60,8 @@
 			echo 'Challenge ID' . $wp_challenge_id;
 			echo '<hr>';
 		}
+	} else {
+		echo 'Nothing to show...';	
 	}
 		
 ?>
