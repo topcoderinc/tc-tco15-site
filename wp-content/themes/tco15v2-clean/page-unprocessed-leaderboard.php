@@ -41,7 +41,6 @@
 			),
 			array(
 				'key'       => 'challenge_url',
-				'compare' 	=> 'NOT EXISTS',
 				'value'     => '',
 			),
 		),
