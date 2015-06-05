@@ -32,15 +32,8 @@
 		'posts_per_page'         => -1,
 		'meta_query'             => array(
 			array(
-				'key'       => 'track',
-				'value'     => $track,
-			),
-			array(
-				'key'       => 'period',
-				'value'     => $period,
-			),
-			array(
 				'key'       => 'challenge_url',
+				'compare' 	=> 'NOT EXISTS',
 				'value'     => '',
 			),
 		),
@@ -51,12 +44,11 @@
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
-			$wp_challenge_id 	= get_field('challenge_id');
-			$wp_post_id 		= get_the_ID();
-			$wp_post_title		= get_the_title();
 			
-			echo 'Challenge Title:' . $wp_post_title . '<br />';
-			echo 'Challenge ID' . $wp_challenge_id;
+			echo 'Challenge Title: ' . get_the_title() . '<br />';
+			echo 'Challenge ID: ' . get_field('challenge_id'). '<br />';
+			echo 'Track: ' . get_field('track'). '<br />';
+			echo 'Period: ' . get_field('period');
 			echo '<hr>';
 		}
 	} else {
