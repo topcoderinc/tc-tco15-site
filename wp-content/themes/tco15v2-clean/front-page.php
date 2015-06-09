@@ -69,9 +69,11 @@
 			</div>
 		</section>
 	
+		<?php /*
 		<section>
 			<?php echo do_shortcode('[tco_carousel limit="15"]'); ?>
 		</section>
+		*/ ?>
 		
 	</div><!-- .container -->
 </main>
