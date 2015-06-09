@@ -16,7 +16,7 @@
 			
 			<?php the_content(); ?>
 			
-			<h3 class="alt-post-title">Meet some of our Online Champions!</h3>
+			<h3 class="alt-post-title">Online Champions &amp; Trip Winners</h3>
 			
 			
 		<?php endif; ?>
