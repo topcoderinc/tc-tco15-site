@@ -40,8 +40,11 @@ jQuery(document).ready(function($) {
 	
 	
 	// Regional Events tab
-	$activeDetail = $('.details.active').attr('id').split('-');
-	$('#completed-'+$activeDetail[2]).show();
+	if ( $('#regional-events-page').length>0 ) {
+		$activeDetail = $('.details.active').attr('id').split('-');
+		$('#completed-'+$activeDetail[2]).show();
+	}
+	
 	$('#event-summary .tab').click(function(){
 	
 		var num = $(this).text();
