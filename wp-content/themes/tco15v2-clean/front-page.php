@@ -91,7 +91,7 @@
 			if ( $query->have_posts() ) :
 		?>
 		<section>
-			<h2 class="alt-section-title">Topcoder Member Quotes</h2>
+			<h3 class="alt-section-title">Topcoder Member Quotes</h3>
 			
 			<div class="row">
 				<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
