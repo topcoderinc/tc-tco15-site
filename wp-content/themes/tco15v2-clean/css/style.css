@@ -896,6 +896,7 @@ footer .bottom-section .powered {
 #carousel-quotes {
   color: #999;
   font-weight: 600;
+  margin-top: 20px;
   padding-bottom: 80px;
   font-style: italic;
 }
