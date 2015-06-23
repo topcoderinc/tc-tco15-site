@@ -75,6 +75,62 @@
 		</section>
 		*/ ?>
 		
+		
+		<?php
+			// WP_Query arguments
+			$args = array (
+				'post_type'              => 'quotes',
+				'order'                  => 'ASC',
+				'orderby'                => 'id',
+			);
+			
+			// The Query
+			$query = new WP_Query( $args );
+			
+			// The Loop
+			if ( $query->have_posts() ) :
+		?>
+		<section>
+			
+			<div class="row">
+				<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+				
+					<div id="carousel-quotes" class="carousel slide" data-ride="carousel" data-interval="15000">
+						
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<?php for($i=0; $i<$query->found_posts; $i++) : ?>
+								<li data-target="#carousel-quotes" data-slide-to="<?php echo $i; ?>" class="<?php echo $i==0 ? 'active' : ''; ?>"></li>
+							<?php endfor; ?>
+						</ol>
+						
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<?php
+								$active = true;
+								while ( $query->have_posts() ) :
+									$query->the_post();
+							?>
+							
+							<div class="item text-center <?php echo $active ? 'active' : ''; ?>">
+								<q><?php echo $post->post_content; ?></q>
+							</div>
+							<?php $active = false; endwhile; ?>
+						</div>
+						
+						
+					</div>
+				
+				</div>
+			</div>
+		</section>
+		<?php
+			endif;
+			
+			// Restore original Post Data
+			wp_reset_postdata();
+		?>	
+		
 	</div><!-- .container -->
 </main>
 

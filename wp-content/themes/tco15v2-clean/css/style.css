@@ -893,6 +893,12 @@ footer .bottom-section .powered {
   background: none !important;
   padding-left: 0 !important;
 }
+#carousel-quotes {
+  color: #999;
+  font-weight: 600;
+  padding-bottom: 80px;
+  font-style: italic;
+}
 /* Media Queries -------------------------------------------------------------------------------------------------------------------------------- */
 /* - medium:tablet */
 @media (min-width: 768px) {
@@ -1105,6 +1111,9 @@ footer .bottom-section .powered {
   .finalist-thumb span {
     font-size: 18px;
   }
+  #carousel-quotes {
+    font-size: 18px;
+  }
 }
 /* - large:small laptop */
 @media (min-width: 992px) {
@@ -1149,6 +1158,9 @@ footer .bottom-section .powered {
   }
   .finalist-thumb span {
     font-size: 30px;
+  }
+  #carousel-quotes {
+    font-size: 24px;
   }
 }
 /* - extra large:desktop */
