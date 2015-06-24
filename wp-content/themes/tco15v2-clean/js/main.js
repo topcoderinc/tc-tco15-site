@@ -1,7 +1,5 @@
 jQuery(document).ready(function($) {
 	
-	var isShowNews = true;
-	
 	// For style guide use. Remove this when in production
 	if ( $('.tblStyleGuide').length>0 ) {
 		$('.tblStyleGuide tbody tr').each(function(index, element) {
@@ -127,8 +125,8 @@ jQuery(document).ready(function($) {
 		if ( tab!='' ) {
 			$("a[data-tab='"+tab+"']").trigger('click');
 			
-			if (tab=='tco15-tokyo-japan-event') {
-				isShowNews = false;
+			if (tab=='tco15-tokyo-japan-event' && $('#latest-news-popup').length>0 ) {
+				$('#latest-news-popup').remove();
 			}
 		}
 	}
@@ -136,7 +134,7 @@ jQuery(document).ready(function($) {
 	
 	// Latest News
 	$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
-	if ( $('#latest-news-popup').css('display')=='block' && isShowNews ) {
+	if ( $('#latest-news-popup').css('display')=='block' ) {
 		$(window).resize(function(){
 			$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
 		});
