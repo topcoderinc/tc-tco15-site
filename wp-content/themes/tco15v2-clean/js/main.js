@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
 	
+	var isShowNews = true;
+	
 	// For style guide use. Remove this when in production
 	if ( $('.tblStyleGuide').length>0 ) {
 		$('.tblStyleGuide tbody tr').each(function(index, element) {
@@ -40,6 +42,7 @@ jQuery(document).ready(function($) {
 	
 	
 	// Regional Events tab
+	
 	if ( $('#regional-events-page').length>0 ) {
 		$activeDetail = $('.details.active').attr('id').split('-');
 		$('#completed-'+$activeDetail[2]).show();
@@ -115,9 +118,25 @@ jQuery(document).ready(function($) {
 	$('.subpagenav-'+reg_event_active_tab).removeClass('hide');
 	
 	
+	// Regional Events direct link
+	if ( $('#regional-events-page').length>0 ) {
+		var tab = window.location.hash;
+		tab = tab.replace('#', '');
+		tab = tab.replace(/\//g, '');
+		
+		if ( tab!='' ) {
+			$("a[data-tab='"+tab+"']").trigger('click');
+			
+			if (tab=='tco15-tokyo-japan-event') {
+				isShowNews = false;
+			}
+		}
+	}
+	
+	
 	// Latest News
 	$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
-	if ( $('#latest-news-popup').css('display')=='block' ) {
+	if ( $('#latest-news-popup').css('display')=='block' && isShowNews ) {
 		$(window).resize(function(){
 			$('#latest-news-popup').css('left', $('header .container').offset().left + 15);
 		});
@@ -131,15 +150,4 @@ jQuery(document).ready(function($) {
 		$('#latest-news-popup').slideUp(300);
 	});
 	
-	
-	// Regional Events direct link
-	if ( $('#regional-events-page').length>0 ) {
-		var tab = window.location.hash;
-		tab = tab.replace('#', '');
-		tab = tab.replace(/\//g, '');
-		
-		if ( tab!='' ) {
-			$("a[data-tab='"+tab+"']").trigger('click');
-		}
-	}
 });
