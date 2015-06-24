@@ -44,6 +44,8 @@ jQuery(document).ready(function($) {
 	if ( $('#regional-events-page').length>0 ) {
 		$activeDetail = $('.details.active').attr('id').split('-');
 		$('#completed-'+$activeDetail[2]).show();
+		
+		removeNews();
 	}
 	
 	$('#event-summary .tab').click(function(){
@@ -83,6 +85,7 @@ jQuery(document).ready(function($) {
 		$('.subpage').hide();
 		$('#subpage-'+subpage_id).removeClass('hide').show();
 		
+		removeNews();
 	});
 	
 	$('.subpagenav a').click(function(){
@@ -124,10 +127,6 @@ jQuery(document).ready(function($) {
 		
 		if ( tab!='' ) {
 			$("a[data-tab='"+tab+"']").trigger('click');
-			
-			if (tab=='tco15-tokyo-japan-event' && $('#latest-news-popup').length>0 ) {
-				$('#latest-news-popup').remove();
-			}
 		}
 	}
 	
@@ -148,4 +147,11 @@ jQuery(document).ready(function($) {
 		$('#latest-news-popup').slideUp(300);
 	});
 	
+	
+	// remove popup news when in tokyo event
+	function removeNews() {
+		if( $('#event-summary a.active').data('tab')=='tco15-tokyo-japan-event' && $('#latest-news-popup').length>0 ) {
+			$('#latest-news-popup').remove();
+		}	
+	}
 });
