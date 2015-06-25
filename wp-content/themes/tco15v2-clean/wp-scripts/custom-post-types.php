@@ -399,3 +399,50 @@ function quotes_post_type() {
 
 // Hook into the 'init' action
 add_action( 'init', 'quotes_post_type', 0 );
+
+
+// Register Custom Post Type
+function membersform_post_type() {
+
+	$labels = array(
+		'name'                => _x( 'Members Form', 'Post Type General Name', 'tco' ),
+		'singular_name'       => _x( 'Members Form', 'Post Type Singular Name', 'tco' ),
+		'menu_name'           => __( 'Members Form', 'tco' ),
+		'name_admin_bar'      => __( 'Post Type', 'tco' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'tco' ),
+		'all_items'           => __( 'All Items', 'tco' ),
+		'add_new_item'        => __( 'Add New Item', 'tco' ),
+		'add_new'             => __( 'Add New', 'tco' ),
+		'new_item'            => __( 'New Item', 'tco' ),
+		'edit_item'           => __( 'Edit Item', 'tco' ),
+		'update_item'         => __( 'Update Item', 'tco' ),
+		'view_item'           => __( 'View Item', 'tco' ),
+		'search_items'        => __( 'Search Item', 'tco' ),
+		'not_found'           => __( 'Not found', 'tco' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tco' ),
+	);
+	$args = array(
+		'label'               => __( 'membersform', 'tco' ),
+		'description'         => __( 'Post Type Description', 'tco' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 25,
+		'menu_icon'           => 'dashicons-id',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'membersform', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'membersform_post_type', 0 );
