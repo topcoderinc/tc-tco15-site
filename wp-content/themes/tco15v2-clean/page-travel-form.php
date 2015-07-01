@@ -64,6 +64,47 @@
 		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
 		
 		
+			// - gmail to IFTTT
+			unset($headers);
+			$message = $_POST['handle'] . "|||" .
+				$_POST['first_name'] . "|||" .
+				$_POST['middle_name'] . "|||" .
+				$_POST['surname'] . "|||" .
+				$_POST['street'] . "|||" . 
+				$_POST['city'] . "|||" . 
+				$_POST['state_province'] . "|||" . 
+				$_POST['postal_code'] . "|||" . 
+				$_POST['country'] . "|||" . 
+				$_POST['mobile_phone'] . "|||" . 
+				$_POST['email_address'] . "|||" . 
+				$_POST['emergency_name'] . "|||" . 
+				$_POST['emergency_contact'] . "|||" . 
+				$_POST['relationship'] . "|||" . 
+				$_POST['gender']. "|||" . 
+				$_POST['date_of_birth'] . "|||" . 
+				$_POST['passport_number'] . "|||" . 
+				$_POST['passport_expiration_date'] . "|||" . 
+				$_POST['country_of_issue'] . "|||" . 
+				$_POST['allergies'] . "|||" . 
+				$_POST['meals'] . "|||" . 
+				$_POST['special_assistance'] . "|||" . 
+				$_POST['handle_phonetic'] . "|||" . 
+				$_POST['name_phonetic'] . "|||" . 
+				$_POST['departure'] . "|||" . 
+				$_POST['home_departure_time'] . "|||" . 
+				$_POST['location_departure_time'] . "|||" . 
+				$_POST['airline_sitting'] . "|||" . 
+				nl2br($_POST['travel_notes']);
+			$subject 		= 'IFTTT TCO15 Travel Form';
+			$email_receiver = array('jamesmarquez@gmail.com');
+			$headers[] 		= 'From: notification@topcoder.com <notification@topcoder.com>';
+	
+			add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+			$sent = wp_mail( $email_receiver, $subject, $message, $headers );
+			remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+			// --- end
+		
+		
 		
 		if ( $sent ) {
 			$message = 'Your travel form has been sent to <a href="mailto:jford@appirio.com">jford@appirio.com</a>. If you have further question, kindly email her.';
