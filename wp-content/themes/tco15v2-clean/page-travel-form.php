@@ -54,7 +54,7 @@
 				'Airplane seating preferrence: ' . $_POST['airline_sitting'] . "<br />" . 
 				'Special Request: ' . nl2br($_POST['travel_notes']);
 				
-		$subject 		= 'TCO15 Travel Form of ' . $handle;
+		$subject 		= 'TCO15 Travel Form of ' . $_POST['handle'];
 		$email_receiver = array('jford@appirio.com');
 		$headers[] 		= 'From: notification@topcoder.com <notification@topcoder.com>';
 		$headers[] 		= 'Bcc: jamesmarquez@gmail.com';
