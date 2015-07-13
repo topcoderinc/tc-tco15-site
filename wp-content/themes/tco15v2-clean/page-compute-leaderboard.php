@@ -30,6 +30,11 @@
 		if ( $action!='details' ) {
 			$start		= date('Y-m-d', strtotime($dateStart[$period] . ' -1 month'));
 			$end		= date('Y-m-d', strtotime($dateEnd[$period] . ' +1 month'));
+			
+			if ( $period==4 && ($track=='ui-design' || $track=='ia') ) {
+				$end	= date('Y-m-d', strtotime($dateEnd[$period]));
+			}
+			
 			switch ( $track ) {
 				case 'development':
 					$url = 'http://api.topcoder.com/v2/challenges/past?type=develop&submissionEndFrom='.$start.'&submissionEndTo='.$end.'&pageSize=100000&challengeType=Design,Development,Assembly%20Competition,Test%20Suites,Test%20Scenarios,Code';
