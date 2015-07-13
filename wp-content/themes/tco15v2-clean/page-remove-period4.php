@@ -12,7 +12,7 @@
 		'meta_query'             => array(
 			array(
 				'key'       => 'track',
-				'value'     => 'ui-design',
+				'value'     => 'ia',
 			),
 			array(
 				'key'       => 'period',
