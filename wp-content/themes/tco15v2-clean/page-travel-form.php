@@ -51,7 +51,7 @@
 				'Event Location: ' . $_POST['event_you_are_attending'] . "<br />" . 
 				'Departure City and Airport: ' . $_POST['departure'] . "<br />" . 
 				'Preferred departure time from home: ' . $_POST['home_departure_time'] . "<br />" . 
-				$field[$fieldname]['location_departure_time'] .': ' . $_POST['location_departure_time'] . "<br />" . 
+				$field['location_departure_time']['label'] .': ' . $_POST['location_departure_time'] . "<br />" . 
 				'Airplane seating preferrence: ' . $_POST['airline_sitting'] . "<br />" . 
 				'Special Request: ' . nl2br($_POST['travel_notes']);
 				
