@@ -48,6 +48,7 @@
 				'Name Phonetic Spelling: ' . $_POST['name_phonetic'] . "</p>" . 
 				 
 				'<p><strong>Travel Information</strong>' . "<br />" .
+				'Event Location: ' . $_POST['event_you_are_attending'] . "<br />" . 
 				'Departure City and Airport: ' . $_POST['departure'] . "<br />" . 
 				'Preferred departure time from home: ' . $_POST['home_departure_time'] . "<br />" . 
 				$field[$fieldname]['location_departure_time'] .': ' . $_POST['location_departure_time'] . "<br />" . 
@@ -62,8 +63,8 @@
 		add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 		$sent = wp_mail( $email_receiver, $subject, $message, $headers );
 		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-		
-		
+			
+		if ( $sent ) {
 			// - gmail to IFTTT
 			unset($headers);
 			$message = $_POST['handle'] . "|||" .
@@ -94,19 +95,34 @@
 				$_POST['home_departure_time'] . "|||" . 
 				$_POST['location_departure_time'] . "|||" . 
 				$_POST['airline_sitting'] . "|||" . 
-				nl2br($_POST['travel_notes']);
+				nl2br($_POST['travel_notes']) . "|||".
+				$_POST['event_you_are_attending'];
 			$subject 		= 'IFTTT TCO15 Travel Form';
 			$email_receiver = array('jamesmarquez@gmail.com');
 			$headers[] 		= 'From: notification@topcoder.com <notification@topcoder.com>';
 	
 			add_filter( 'wp_mail_content_type', 'set_html_content_type' );
-			$sent = wp_mail( $email_receiver, $subject, $message, $headers );
+			$sent1 = wp_mail( $email_receiver, $subject, $message, $headers );
 			remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
 			// --- end
-		
-		
-		
-		if ( $sent ) {
+			
+			
+			// send to user
+			unset($headers);
+			$message 		= "<p>Thank you for submitting your travel form for the TCO15 onsite event.</p>
+							   <p>Now that we have all your details, your form will be sent to Atlas Travel Agency to find you the perfect flight. Jessie will be sending you the found flight literary as soon as possible.  You will have to respond within 24 hours or we'll have to look for another flight. If in the event you do not get back to us <strong>within 24 hours</strong> and the cost of the flight goes up, you will be responsible for the additional fee.</p>
+							   <p>If you forgot any details on your travel form or are flying with a guest and forgot to include them, please send Jessie an email as soon as possible.</p>
+							   <p>Thank you!</p>
+							   <p>Jessie Ford can be reached at: <a href=\"mailto:jford@appirio.com\">jford@appirio.com</a></p>";
+			$subject 		= 'TCO15 Travel Form';
+			$email_receiver = array($_POST['email_address']);
+			$headers[] 		= 'From: notification@topcoder.com <notification@topcoder.com>';
+	
+			add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+			$sent2 = wp_mail( $email_receiver, $subject, $message, $headers );
+			remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+			
+			
 			$message = 'Your travel form has been sent to <a href="mailto:jford@appirio.com">jford@appirio.com</a>. If you have further question, kindly email her.';
 			$message_alert = 'success';
 		} else {
@@ -408,6 +424,21 @@
 					<tbody>
 						<tr>
 							<td>
+								<?php $fieldname = 'event_you_are_attending'; ?>
+								<div class="form-group">
+									<label for="travel_<?php echo $fieldname; ?>" class="col-sm-4 control-label"><?php echo $field[$fieldname]['label']; ?></label>
+									<div class="col-sm-8">
+										<label class="radio-inline">																	
+											<input type="radio" id="travel_indianapolis" name="<?php echo $fieldname; ?>" value="Indianapolis"<?php if ($field[$fieldname]['value']=='' || $field[$fieldname]['value']=='Indianapolis') : ?> checked="checked"<?php endif; ?>>
+											Indianapolis
+										</label>
+										<label class="radio-inline">
+											<input type="radio" id="travel_gender_female" name="<?php echo $fieldname; ?>" value="Indonesia"<?php if ($field[$fieldname]['value']=='Indonesia') : ?> checked="checked"<?php endif; ?>>
+											Indonesia
+										</label>
+									</div>
+								</div>
+								
 								<?php $fieldname = 'departure'; ?>
 								<div class="form-group">
 									<label for="travel_<?php echo $fieldname; ?>" class="col-sm-4 control-label"><?php echo $field[$fieldname]['label']; ?></label>
