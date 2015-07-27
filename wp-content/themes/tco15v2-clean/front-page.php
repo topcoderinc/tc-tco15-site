@@ -7,6 +7,21 @@
 	<div class="container">
 	
 		<section>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">&nbsp;
+					<a href="http://tco15.topcoder.com/overview/sponsors/memsql/"><img src="http://tco15.topcoder.com/wp-content/uploads/2015/04/memsql.png" class="img-responsive img-full" alt="memsql" /></a>
+				</div>
+			
+				<div class="col-sm-4 col-sm-offset-2">
+					<a href="http://tco15.topcoder.com/overview/sponsors/sparkpost/"><img src="http://tco15.topcoder.com/wp-content/uploads/2015/07/SparkPostLP.png" class="img-responsive img-full" alt="SparkPost"></a>
+				</div>
+			</div>
+		</section>
+		
+		<hr />
+		<p>&nbsp;</p>
+	
+		<section>
 			<h2 class="section-title">COMPETITION TRACKS</h2>
 			<div class="row text-center">
 				<div class="col-sm-4">
