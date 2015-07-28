@@ -12,11 +12,11 @@
 		'meta_query'             => array(
 			array(
 				'key'       => 'track',
-				'value'     => 'ia',
+				'value'     => $_GET['track'],
 			),
 			array(
 				'key'       => 'period',
-				'value'     => '4',
+				'value'     => $_GET['period'],
 			),
 		),
 	);

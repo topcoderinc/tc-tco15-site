@@ -272,7 +272,10 @@
 					$challenge_json = file_get_contents($challenge_url);
 					$challenge_obj 	= json_decode($challenge_json);
 					
-					if ( $challenge_obj) {
+					if ( $challenge_obj ) {
+						
+						// limit the points to the winners only
+						$num_winners = count($challenge_obj->prize);
 						
 						// Get Result
 						$result_url 	= 'https://api.topcoder.com/v2/design/challenges/result/'.$wp_challenge_id;
@@ -289,15 +292,15 @@
 							$placement_points[5] = 1;
 							
 							// number of passing submissions
-							$numberOfSubmission  = $result_obj->submissions>5 ? 5 : $result_obj->submissions;
+							//$numberOfSubmission  = $result_obj->submissions>5 ? 5 : $result_obj->submissions;
 							
 							// save custom fields
 							add_post_meta($wp_post_id, 'challenge_url', $challenge_obj->directUrl, true);
-							add_post_meta($wp_post_id, 'winners', $numberOfSubmission, true);
+							add_post_meta($wp_post_id, 'winners', $num_winners, true);
 							
 							foreach( $result_obj->results as $k=>$v ) {
 								
-								if ( $v->placement<=5 && ($v->submissionStatus=='Completed Without Win' || $v->submissionStatus=='Active')) {
+								if ( $v->placement<=$num_winners && ($v->submissionStatus=='Completed Without Win' || $v->submissionStatus=='Active')) {
 									$key = $v->placement - 1;
 									
 									add_post_meta($wp_post_id, 'winners_'.$key.'_placement', $v->placement, true);
