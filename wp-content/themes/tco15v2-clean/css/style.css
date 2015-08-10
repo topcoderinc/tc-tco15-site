@@ -475,49 +475,58 @@ main .article ul.nav-tabs.nav-justified li.active a {
   text-align: center;
 }
 #topRightSocialMedia span {
-  background-image: url(../i/ico-social.png) !important;
-  background-repeat: no-repeat;
-  background-position: 0 0;
   cursor: pointer;
   display: inline-block;
   height: 28px;
   margin: 0 5px;
   width: 28px;
 }
-#topRightSocialMedia span.st_facebook_large {
+#topRightSocialMedia span.st_facebook_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0 0;
 }
-#topRightSocialMedia span.st_facebook_large:hover {
+#topRightSocialMedia span.st_facebook_large .stLarge:hover {
   background-position: 0 -50px;
 }
-#topRightSocialMedia span.st_twitter_large {
+#topRightSocialMedia span.st_twitter_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0 -100px;
 }
-#topRightSocialMedia span.st_twitter_large:hover {
+#topRightSocialMedia span.st_twitter_large .stLarge:hover {
   background-position: 0 -150px;
 }
-#topRightSocialMedia span.st_googleplus_large {
+#topRightSocialMedia span.st_googleplus_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0 -200px;
 }
-#topRightSocialMedia span.st_googleplus_large:hover {
+#topRightSocialMedia span.st_googleplus_large .stLarge:hover {
   background-position: 0 -250px;
 }
-#topRightSocialMedia span.st_linkedin_large {
+#topRightSocialMedia span.st_linkedin_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0 -300px;
 }
-#topRightSocialMedia span.st_linkedin_large:hover {
+#topRightSocialMedia span.st_linkedin_large .stLarge:hover {
   background-position: 0 -350px;
 }
-#topRightSocialMedia span.st_pinterest_large {
+#topRightSocialMedia span.st_pinterest_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0 -400px;
 }
-#topRightSocialMedia span.st_pinterest_large:hover {
+#topRightSocialMedia span.st_pinterest_large .stLarge:hover {
   background-position: 0 -450px;
 }
-#topRightSocialMedia span.st_email_large {
+#topRightSocialMedia span.st_email_large .stLarge {
+  background-image: url(../i/ico-social.png) !important;
+  background-repeat: no-repeat;
   background-position: 0px -500px;
 }
-#topRightSocialMedia span.st_email_large:hover {
+#topRightSocialMedia span.st_email_large .stLarge:hover {
   background-position: 0 -550px;
 }
 .stButton .stLarge:hover {
