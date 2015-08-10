@@ -25,6 +25,9 @@
 
 		<?php wp_head(); ?>	
 		
+		<script type="text/javascript">var switchTo5x=true;</script>
+		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+		<script type="text/javascript">stLight.options({publisher: "3c9e9986-67a7-451d-a43e-909c8876cca3", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 	</head>
 
 	<body <?php body_class($class); ?>>

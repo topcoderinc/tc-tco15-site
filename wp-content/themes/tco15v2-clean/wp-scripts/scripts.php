@@ -10,7 +10,6 @@ function load_site_styles() {
 // Add theme JS files
 function load_site_scripts() {
 	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), false, true);
-	wp_enqueue_script('buttons', get_template_directory_uri() . '/js/buttons.js', array('jquery'), false, true); // sharethis
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'), false, true);	
 }
 
