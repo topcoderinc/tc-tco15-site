@@ -9,15 +9,16 @@
 		<section>
 			<h3 class="alt-section-title">SPONSORED BY</h3>
 			<div class="row">
-				<div class="col-sm-4">&nbsp;
+				<div class="col-sm-4 col-sm-offset-1">&nbsp;
 					<a href="http://tco15.topcoder.com/overview/sponsors/memsql/"><img src="http://tco15.topcoder.com/wp-content/uploads/2015/04/memsql.png" class="img-responsive img-full" alt="memsql" /></a>
 				</div>
 			
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-sm-offset-2">
 					<a href="http://tco15.topcoder.com/overview/sponsors/sparkpost/"><img src="http://tco15.topcoder.com/wp-content/uploads/2015/07/SparkPostLP.png" class="img-responsive img-full" alt="SparkPost"></a>
 				</div>
-				
-				<div class="col-sm-4">
+			</div>
+			<div class="row">
+				<div class="center-block" style="width:250px; margin-top: 60px;">
 					<a href="https://tco-15.herokuapp.com/#team" target="_blank"><img src="http://tco15.topcoder.com/wp-content/uploads/2015/08/vistaprint.png" class="img-responsive img-full" alt="vistaprint cimpress"></a>
 				</div>
 			</div>
