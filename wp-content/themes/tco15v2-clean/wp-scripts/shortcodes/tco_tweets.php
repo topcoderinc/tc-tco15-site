@@ -22,6 +22,8 @@ function tco_tweets_function($atts, $content = null) {
 		return $ret;
 	}
 	
+	$carouselId = 'side-tweet-'.md5(microtime());
+	$interval	= 10000;
 	$search = $key;
 	$consumerkey = "zf6xRR8ZtvHoNMKNxvJrDJfOV";
 	$consumersecret = "o7fGFNbPdaG928pC5NiqrUS54UMnf4iEo26AuDusowerXN7kWO";
@@ -36,12 +38,12 @@ function tco_tweets_function($atts, $content = null) {
 	
 	$params ['q'] = $search;
 	$tweets = $connection->get ( "https://api.twitter.com/1.1/search/tweets.json", $params );
-		
+	
 	// save to wp as posts to prevent blank tweet list	
 	if ( count($tweets->statuses)>0 ) {
 		$user = get_user_by( 'slug', 'quesks' );
 		foreach ( $tweets->statuses as $k => $v ) {
-			$content = '<img src="' . $v->user->profile_image_url . '" alt="" />
+			$content = '<img src="' . str_replace('_normal', '', $v->user->profile_image_url) . '" alt="" class="img-responsive" />
 					<p>
 						<a href="http://twitter.com/' . $v->user->screen_name . '">@' . $v->user->screen_name . '</a>
 						<span>' . twitterify ( $v->text ) . '</span>
@@ -63,32 +65,37 @@ function tco_tweets_function($atts, $content = null) {
 					
 			}
 			
+			// for display render
+			$slideHtml .= ' <div class="item ' . ($k == 0 ? "active" : "") . '">' . apply_filters ('the_content', $content ) . '</div>';
+			$carouselNavs .= '<li class="' . ($k == 0 ? "active" : "") . '" data-target="#' . $carouselId . '" data-slide-to="' . $k . '"></li> ';
+			
 		}
 	}		
 	
-	$carouselId = 'side-tweet-'.md5(microtime());
-	$interval	= 10000;
 	
-	$args = array (
+	if ( count($tweets->statuses)==0 ) {
+		$args = array (
 			'post_type' 	 => 'tweet',
 			'posts_per_page' => $limit,
 			'orderby' 		 => 'title',
 			'order'			 => 'DESC'
-	);
-	$tweets = new WP_Query ( $args );
-	
-	$slideHtml		= '';
-	$carouselNavs 	= '';
-	$count 			= 0;
-	
-	if ($tweets->have_posts ()) {
-		while ( $tweets->have_posts () ) :
-			$tweets->the_post();
-			$slideHtml .= ' <div class="item ' . ($count == 0 ? "active" : "") . '">' . apply_filters ('the_content', get_the_content () ) . '</div>';
-			$carouselNavs .= '<li class="' . ($count == 0 ? "active" : "") . '" data-target="#' . $carouselId . '" data-slide-to="' . $count . '"></li> ';
-			$count += 1;
-		endwhile;
+		);
+		$tweets = new WP_Query ( $args );
+		
+		$slideHtml		= '';
+		$carouselNavs 	= '';
+		$count 			= 0;
+		
+		if ($tweets->have_posts ()) {
+			while ( $tweets->have_posts () ) :
+				$tweets->the_post();
+				$slideHtml .= ' <div class="item ' . ($count == 0 ? "active" : "") . '">' . apply_filters ('the_content', get_the_content () ) . '</div>';
+				$carouselNavs .= '<li class="' . ($count == 0 ? "active" : "") . '" data-target="#' . $carouselId . '" data-slide-to="' . $count . '"></li> ';
+				$count += 1;
+			endwhile;
+		}
 	}
+	
 	
 	$html = '<div id="' . $carouselId . '" class="side-tweeter-carousel carousel slide" data-ride="carousel" data-interval="'.$interval.'">
 				  <!-- Indicators -->
